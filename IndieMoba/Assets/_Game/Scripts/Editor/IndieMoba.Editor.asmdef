@@ -1,0 +1,26 @@
+{
+    "name": "IndieMoba.Editor",
+    "rootNamespace": "IndieMoba.EditorTools",
+    "references": [
+        "IndieMoba.Core",
+        "IndieMoba.Characters",
+        "IndieMoba.Input",
+        "IndieMoba.CameraSystem",
+        "IndieMoba.Presentation",
+        "Unity.InputSystem",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Universal.2D.Runtime",
+        "Unity.2D.Sprite.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

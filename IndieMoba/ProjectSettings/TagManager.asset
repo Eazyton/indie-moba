@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Obstacle
+  - Hero
   - 
   - 
   - 
@@ -41,3 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 3803529630
+    locked: 0
+  - name: GroundDecor
+    uniqueID: 1880157324
+    locked: 0
+  - name: Actors
+    uniqueID: 4182086795
+    locked: 0
+  - name: Overhead
+    uniqueID: 2524513621
+    locked: 0
+  - name: VFX
+    uniqueID: 219262144
+    locked: 0
+  - name: UI
+    uniqueID: 2079568636
+    locked: 0
+  m_RenderingLayers:
+  - Default
