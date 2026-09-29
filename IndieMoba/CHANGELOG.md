@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1] - 2026-09-29 - Phase 1 polish: resolution testing
+
+### Added
+- `GameViewResolutionPresets` editor menu (`IndieMoba > Game View`): Desktop 16:9 and Mobile 19.5:9 fixed Game View sizes derived from the Pixel Perfect Camera reference height, avoiding the odd/too-small resolution warning.
+
+### Changed
+- Pixel Perfect reference resolution in `PrototypeSceneBuilder` is now a named setting (`ReferenceResolutionX/Y`, still 960x540). Scene output unchanged.
+- `DEVELOPMENT.md` documents aspect-ratio behavior and resolution testing.
+
 ## [0.1.0] - 2026-09-29 - Phase 1: Movement prototype
 
 ### Added

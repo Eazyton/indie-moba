@@ -32,6 +32,8 @@ namespace IndieMoba.EditorTools
         private const float CropH = 864f;
         private const float MapWidth = 40f;
         private const float MapHeight = 27f;
+        private const int ReferenceResolutionX = 960;
+        private const int ReferenceResolutionY = 540;
 
         [MenuItem("IndieMoba/Prototype/Rebuild Gameplay Prototype")]
         public static void BuildFromMenu()

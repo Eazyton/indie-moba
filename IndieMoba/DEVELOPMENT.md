@@ -79,7 +79,12 @@ All parameters live in `Assets/_Game/Data/Characters/HeroMovementConfig.asset`.
 
 ## Camera and pixel-perfect rendering
 
-- `Main Camera` has a URP `PixelPerfectCamera`: 32 PPU, reference resolution 960x540, grid snapping enabled. Change these on the component if the art scale changes.
+- `Main Camera` has a URP `PixelPerfectCamera`: 32 PPU, reference resolution 960x540, grid snapping enabled, crop frame None. Change these on the component if the art scale changes; the builder defaults are `ReferenceResolutionX/Y` in `PrototypeSceneBuilder.cs`.
+- The reference height defines vertical world coverage (540 px / 32 PPU = 16.875 units). With crop frame None, wider screens show more of the world horizontally instead of adding black bars: 16:9 shows 30 units, 19.5:9 about 36.6 units (map is 40 wide, so bounds clamping still applies).
+- The PixelPerfectCamera draws a red on-screen warning in the Editor when the Game View is odd-sized or smaller than the reference resolution (typical with a docked "Free Aspect" Game View). Test with a fixed, even resolution at an integer multiple of the reference height:
+  - `IndieMoba > Game View > Desktop 16:9` (1920x1080 at the default reference)
+  - `IndieMoba > Game View > Mobile 19.5:9` (2340x1080 at the default reference)
+  These add the size to the Game View dropdown if missing and select it. Sizes are computed as 2x the scene's reference height. If the menu fails (it uses internal Editor APIs), add the size manually as a Fixed Resolution in the Game View dropdown.
 - All placeholder textures: Point filtering, 32 PPU, no compression, no mipmaps.
 - `MobaCameraRig` follows the target with smoothing and clamps to map bounds (40 x 27 world units for the prototype map).
 

@@ -123,8 +123,8 @@ namespace IndieMoba.EditorTools
             cam.GetUniversalAdditionalCameraData();
             var ppc = cameraGO.AddComponent<PixelPerfectCamera>();
             ppc.assetsPPU = 32;
-            ppc.refResolutionX = 960;
-            ppc.refResolutionY = 540;
+            ppc.refResolutionX = ReferenceResolutionX;
+            ppc.refResolutionY = ReferenceResolutionY;
             ppc.gridSnapping = PixelPerfectCamera.GridSnapping.PixelSnapping;
             ppc.cropFrame = PixelPerfectCamera.CropFrame.None;
             var rig = cameraGO.AddComponent<MobaCameraRig>();
