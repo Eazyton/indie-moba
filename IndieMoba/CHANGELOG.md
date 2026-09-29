@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.2.1]
+
+### Fixed
+- `CombatFeedbackSpawner` added a second `MeshRenderer` after `TextMesh` (which already requires one), producing a null renderer and a NullReferenceException per damage event.
+- Damage feedback failures are caught and logged; `CombatWorld` isolates `DamageApplied` subscribers and always clears pending damage.
+- `ConfigureTagsAndSortingLayers` keeps existing valid sorting layer IDs and only writes the TagManager when something actually changed.
+
+### Added
+- `BasicAttackTargeting` (AutoTarget, ExplicitTarget, AttackMoveTarget) carried on `AbilityCommand`/`AbilityContext`. Current input still uses AutoTarget (cone); AttackMoveTarget currently falls back to AutoTarget.
+
+## [0.2.0] - 2026-09-29 - Phase 2: Hero combat foundation
+
+### Added
+- `SimulationTickRunner` shared 60 Hz gameplay clock with ordered `ISimulationSystem` stages (input, actors, abilities, projectiles, damage, state).
+- `IndieMoba.Combat` assembly: `Team`, `Cooldown`, `DamageInfo`/`DamageResult`, `IDamageable`, `Health` (HP, shield, death/revive events), `ICombatTarget`/`CombatTarget`, `CombatWorld` (target registry, cone target selection, homing/linear projectiles, delayed areas, damage queue), `AbilityConfig`, ability behaviours, `HeroCombat`, `CombatDummy`.
+- Targeted basic attack (cursor-assisted cone selection, homing projectile), Q linear projectile, W shield, E collision-aware dash, R delayed targeted area.
+- `AbilityCommand` / `IAbilityInputSource`; `KeyboardMouseInputSource` queues LMB (hold) and Q/W/E/R commands at the cursor.
+- `CharacterMotor.SimulateForced` and `HeroActor.StartForcedMove` for dashes using the normal collide-and-slide.
+- Placeholder presentation: damage flash, floating damage text, sparks, projectile views, shield ring, dash trail, area telegraph, attack animator trigger, `CombatAudioHooks`, `CombatDebugOverlay`.
+- Prefabs `CombatDummy`, `BasicAttackProjectile`, `AbilityProjectile_Q`; ability configs in `Data/Abilities`; Nilo attack clip and `Attack` trigger.
+- Exported placeholder art: Vex sheet (dummy), Q projectile, shield ring, spark, ember; generated circle/ring sprites.
+- Menu alias `IndieMoba > Build Prototype`.
+
+### Changed
+- `HeroActor` is ticked by the scene's `SimulationTickRunner` (falls back to its own loop without one); movement feel unchanged.
+- Scene builder adds the simulation runner, combat world, hero combat components, two dummies and combat presentation.
+- `DEVELOPMENT.md` documents the combat architecture and the project roadmap.
+
+### Removed
+- WASD movement bindings (W is now an ability). Movement: hold right mouse or arrow keys.
+
 ## [0.1.1] - 2026-09-29 - Phase 1 polish: resolution testing
 
 ### Added

@@ -47,6 +47,12 @@ namespace IndieMoba.EditorTools
             Build();
         }
 
+        [MenuItem("IndieMoba/Build Prototype")]
+        public static void BuildPrototype()
+        {
+            BuildFromMenu();
+        }
+
         public static void BuildFromCommandLine()
         {
             try
@@ -94,14 +100,16 @@ namespace IndieMoba.EditorTools
 
             var sortingLayers = so.FindProperty("m_SortingLayers");
             string[] desiredOrder = { "Default", "Ground", "GroundDecor", "Actors", "Overhead", "VFX", "UI" };
-            var usedIds = new HashSet<uint>();
+            var existingIds = new HashSet<uint>();
             for (int i = 0; i < sortingLayers.arraySize; i++)
             {
-                usedIds.Add(sortingLayers.GetArrayElementAtIndex(i).FindPropertyRelative("uniqueID").uintValue);
+                existingIds.Add(sortingLayers.GetArrayElementAtIndex(i).FindPropertyRelative("uniqueID").uintValue);
             }
+            var processedIds = new HashSet<uint>();
             foreach (string name in desiredOrder)
             {
                 int index = FindSortingLayerIndex(sortingLayers, name);
+                bool inserted = false;
                 if (index < 0)
                 {
                     sortingLayers.InsertArrayElementAtIndex(sortingLayers.arraySize);
@@ -109,27 +117,29 @@ namespace IndieMoba.EditorTools
                     var element = sortingLayers.GetArrayElementAtIndex(index);
                     element.FindPropertyRelative("name").stringValue = name;
                     element.FindPropertyRelative("locked").intValue = 0;
+                    inserted = true;
                 }
-                var layerElement = sortingLayers.GetArrayElementAtIndex(index);
-                uint id = layerElement.FindPropertyRelative("uniqueID").uintValue;
-                if (name != "Default" && (id == 0 || usedIds.Contains(id)))
+                var idProperty = sortingLayers.GetArrayElementAtIndex(index).FindPropertyRelative("uniqueID");
+                uint id = idProperty.uintValue;
+                bool needsId = name == "Default" ? false : inserted || id == 0 || processedIds.Contains(id);
+                if (needsId)
                 {
                     uint fresh = HashName(name);
-                    while (fresh == 0 || usedIds.Contains(fresh))
+                    while (fresh == 0 || existingIds.Contains(fresh) || processedIds.Contains(fresh))
                     {
                         fresh++;
                     }
-                    usedIds.Add(fresh);
-                    layerElement.FindPropertyRelative("uniqueID").uintValue = fresh;
+                    idProperty.uintValue = fresh;
+                    id = fresh;
                 }
-                else
-                {
-                    usedIds.Add(id);
-                }
+                existingIds.Add(id);
+                processedIds.Add(id);
             }
-            so.ApplyModifiedPropertiesWithoutUndo();
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            if (so.hasModifiedProperties)
+            {
+                so.ApplyModifiedPropertiesWithoutUndo();
+                AssetDatabase.SaveAssets();
+            }
             if (SortingLayer.NameToID("Actors") == 0)
             {
                 throw new InvalidOperationException("Sorting layer 'Actors' did not resolve after apply.");
@@ -156,7 +166,11 @@ namespace IndieMoba.EditorTools
             }
             var element = layers.GetArrayElementAtIndex(index);
             string current = element.stringValue;
-            if (string.IsNullOrEmpty(current) || current == name)
+            if (current == name)
+            {
+                return;
+            }
+            if (string.IsNullOrEmpty(current))
             {
                 element.stringValue = name;
             }

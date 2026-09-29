@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using IndieMoba.Characters;
+using IndieMoba.Combat;
 using IndieMoba.Presentation;
 using UnityEditor;
 using UnityEditor.Animations;
@@ -50,6 +51,7 @@ namespace IndieMoba.EditorTools
             ConfigureSingleSprite(ShadowSpritePath, SpriteAlignment.Center, Vector2.zero);
             ConfigureSingleSprite(CollisionCellSpritePath, SpriteAlignment.Center, Vector2.zero);
             ConfigureNiloSheet(NiloSheetPath);
+            ConfigureCombatTextureImports();
         }
 
         private static void ConfigureSingleSprite(string path, SpriteAlignment alignment, Vector2 pivot)
@@ -72,47 +74,7 @@ namespace IndieMoba.EditorTools
 
         private static void ConfigureNiloSheet(string path)
         {
-            var importer = (TextureImporter)AssetImporter.GetAtPath(path);
-            if (importer == null)
-            {
-                LogWarning("Missing texture: " + path);
-                return;
-            }
-            var settings = new TextureImporterSettings();
-            importer.ReadTextureSettings(settings);
-            ApplyCommonSettings(importer, settings);
-            settings.spriteMode = (int)SpriteImportMode.Multiple;
-            importer.SetTextureSettings(settings);
-
-            var existing = AssetDatabase.LoadAllAssetsAtPath(path).OfType<Sprite>()
-                .ToDictionary(s => s.name, s => s.GetSpriteID());
-
-            var factory = new SpriteDataProviderFactories();
-            factory.Init();
-            var dp = factory.GetSpriteEditorDataProviderFromObject(importer);
-            dp.InitSpriteEditorDataProvider();
-
-            const int count = 19;
-            var rects = new SpriteRect[count];
-            var pairs = new SpriteNameFileIdPair[count];
-            for (int i = 0; i < count; i++)
-            {
-                string name = "Nilo_Sheet_" + i;
-                GUID id = existing.TryGetValue(name, out GUID g) ? g : GUID.Generate();
-                rects[i] = new SpriteRect
-                {
-                    name = name,
-                    spriteID = id,
-                    rect = new Rect(i * 56f, 0f, 56f, 56f),
-                    alignment = SpriteAlignment.Custom,
-                    pivot = new Vector2(0.5f, 3f / 56f)
-                };
-                pairs[i] = new SpriteNameFileIdPair(name, id);
-            }
-            dp.SetSpriteRects(rects);
-            dp.GetDataProvider<ISpriteNameFileIdDataProvider>().SetNameFileIdPairs(pairs);
-            dp.Apply();
-            importer.SaveAndReimport();
+            ConfigureCharacterSheet(path, "Nilo_Sheet");
         }
 
         private static void ApplyCommonSettings(TextureImporter importer, TextureImporterSettings settings)
@@ -139,6 +101,7 @@ namespace IndieMoba.EditorTools
             BuildCollisionTile();
             BuildMovementConfig();
             BuildAnimations();
+            BuildNiloAttackAnimation();
             BuildAnimatorController();
             AssetDatabase.SaveAssets();
         }
@@ -180,7 +143,7 @@ namespace IndieMoba.EditorTools
             BuildAnimationClip(WalkAnimPath, sprites, walk);
         }
 
-        private static void BuildAnimationClip(string path, Sprite[] sprites, LayoutAnim anim)
+        private static void BuildAnimationClip(string path, Sprite[] sprites, LayoutAnim anim, bool loop = true)
         {
             var clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(path);
             bool isNew = clip == null;
@@ -206,7 +169,7 @@ namespace IndieMoba.EditorTools
             };
             AnimationUtility.SetObjectReferenceCurve(clip, binding, keys);
             var settings = AnimationUtility.GetAnimationClipSettings(clip);
-            settings.loopTime = true;
+            settings.loopTime = loop;
             AnimationUtility.SetAnimationClipSettings(clip, settings);
             if (isNew)
             {
@@ -222,6 +185,7 @@ namespace IndieMoba.EditorTools
         {
             var idle = AssetDatabase.LoadAssetAtPath<AnimationClip>(IdleAnimPath);
             var walk = AssetDatabase.LoadAssetAtPath<AnimationClip>(WalkAnimPath);
+            var attack = AssetDatabase.LoadAssetAtPath<AnimationClip>(NiloAttackAnimPath);
             var controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(AnimatorControllerPath);
             if (controller == null)
             {
@@ -249,11 +213,14 @@ namespace IndieMoba.EditorTools
             }
             controller.AddParameter("IsMoving", AnimatorControllerParameterType.Bool);
             controller.AddParameter("Speed", AnimatorControllerParameterType.Float);
+            controller.AddParameter("Attack", AnimatorControllerParameterType.Trigger);
             var stateMachine = controller.layers[0].stateMachine;
             var idleState = stateMachine.AddState("Idle");
             idleState.motion = idle;
             var walkState = stateMachine.AddState("Walk");
             walkState.motion = walk;
+            var attackState = stateMachine.AddState("Attack");
+            attackState.motion = attack;
             stateMachine.defaultState = idleState;
             var toWalk = idleState.AddTransition(walkState);
             toWalk.hasExitTime = false;
@@ -263,6 +230,15 @@ namespace IndieMoba.EditorTools
             toIdle.hasExitTime = false;
             toIdle.duration = 0f;
             toIdle.AddCondition(AnimatorConditionMode.IfNot, 0f, "IsMoving");
+            var anyToAttack = stateMachine.AddAnyStateTransition(attackState);
+            anyToAttack.hasExitTime = false;
+            anyToAttack.duration = 0f;
+            anyToAttack.canTransitionToSelf = false;
+            anyToAttack.AddCondition(AnimatorConditionMode.If, 0f, "Attack");
+            var attackToIdle = attackState.AddTransition(idleState);
+            attackToIdle.hasExitTime = true;
+            attackToIdle.exitTime = 1f;
+            attackToIdle.duration = 0f;
             EditorUtility.SetDirty(controller);
         }
 
@@ -274,8 +250,11 @@ namespace IndieMoba.EditorTools
             EnsureFolder("Assets/_Game/Prefabs/Characters/Visuals");
             EnsureFolder("Assets/_Game/Prefabs/Environment");
             EnsureFolder("Assets/_Game/Prefabs/Environment/_Placeholder");
+            BuildProjectilePrefabs();
+            BuildAbilityConfigs();
             BuildNiloVisualPrefab();
             BuildHeroPrefab();
+            BuildCombatDummyPrefab();
             BuildEnvironmentPrefabs();
         }
 
@@ -349,6 +328,76 @@ namespace IndieMoba.EditorTools
             bridgeSo.FindProperty("actor").objectReferenceValue = actor;
             bridgeSo.FindProperty("animator").objectReferenceValue = spriteAnimator;
             bridgeSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var bodySprite = visualInstance.transform.Find("Sprite").GetComponent<SpriteRenderer>();
+
+            var health = root.AddComponent<Health>();
+            var healthSo = new SerializedObject(health);
+            healthSo.FindProperty("maxHealth").floatValue = 640f;
+            healthSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var target = root.AddComponent<CombatTarget>();
+            var targetSo = new SerializedObject(target);
+            targetSo.FindProperty("team").enumValueIndex = 1;
+            targetSo.FindProperty("radius").floatValue = 0.375f;
+            targetSo.FindProperty("health").objectReferenceValue = health;
+            targetSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var combat = root.AddComponent<HeroCombat>();
+            var combatSo = new SerializedObject(combat);
+            combatSo.FindProperty("actor").objectReferenceValue = actor;
+            combatSo.FindProperty("health").objectReferenceValue = health;
+            combatSo.FindProperty("self").objectReferenceValue = target;
+            combatSo.FindProperty("aimOriginOffset").vector2Value = new Vector2(0f, 0.5f);
+            combatSo.FindProperty("basicAttack").objectReferenceValue = LoadAbilityConfig("Hero_BasicAttack");
+            combatSo.FindProperty("ability1").objectReferenceValue = LoadAbilityConfig("Hero_Q_Projectile");
+            combatSo.FindProperty("ability2").objectReferenceValue = LoadAbilityConfig("Hero_W_Shield");
+            combatSo.FindProperty("ability3").objectReferenceValue = LoadAbilityConfig("Hero_E_Dash");
+            combatSo.FindProperty("ultimate").objectReferenceValue = LoadAbilityConfig("Hero_R_Area");
+            combatSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var flash = visualRoot.AddComponent<HealthFlashView>();
+            var flashSo = new SerializedObject(flash);
+            flashSo.FindProperty("renderers").arraySize = 1;
+            flashSo.FindProperty("renderers").GetArrayElementAtIndex(0).objectReferenceValue = bodySprite;
+            flashSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var combatBridge = visualRoot.AddComponent<CombatAnimatorBridge>();
+            var combatBridgeSo = new SerializedObject(combatBridge);
+            combatBridgeSo.FindProperty("combat").objectReferenceValue = combat;
+            combatBridgeSo.FindProperty("animator").objectReferenceValue = spriteAnimator;
+            combatBridgeSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var dashTrail = visualRoot.AddComponent<DashTrailView>();
+            var dashTrailSo = new SerializedObject(dashTrail);
+            dashTrailSo.FindProperty("actor").objectReferenceValue = actor;
+            dashTrailSo.FindProperty("source").objectReferenceValue = bodySprite;
+            dashTrailSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var audioSource = visualRoot.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 0f;
+            var audioHooks = visualRoot.AddComponent<CombatAudioHooks>();
+            var audioHooksSo = new SerializedObject(audioHooks);
+            audioHooksSo.FindProperty("combat").objectReferenceValue = combat;
+            audioHooksSo.FindProperty("source").objectReferenceValue = audioSource;
+            audioHooksSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var shieldRingGO = new GameObject("ShieldRing");
+            shieldRingGO.transform.SetParent(visualRoot.transform, false);
+            shieldRingGO.transform.localPosition = new Vector3(0f, 0.5f, 0f);
+            var shieldSr = shieldRingGO.AddComponent<SpriteRenderer>();
+            shieldSr.sprite = LoadSprite(ShieldRingSpritePath);
+            shieldSr.color = new Color(1f, 0.95f, 0.7f, 0.8f);
+            shieldSr.sortingLayerName = "Actors";
+            shieldSr.sortingOrder = 1;
+            shieldSr.enabled = false;
+
+            var shieldRingView = visualRoot.AddComponent<ShieldRingView>();
+            var shieldRingViewSo = new SerializedObject(shieldRingView);
+            shieldRingViewSo.FindProperty("health").objectReferenceValue = health;
+            shieldRingViewSo.FindProperty("ring").objectReferenceValue = shieldSr;
+            shieldRingViewSo.ApplyModifiedPropertiesWithoutUndo();
 
             PrefabUtility.SaveAsPrefabAsset(root, HeroPrefabPath);
             Object.DestroyImmediate(root);

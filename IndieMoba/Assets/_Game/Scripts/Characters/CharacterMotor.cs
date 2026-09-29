@@ -98,6 +98,21 @@ namespace IndieMoba.Characters
             }
         }
 
+        public void SimulateForced(ref CharacterMotorState state, Vector2 velocity, float deltaTime)
+        {
+            state.HasDestination = false;
+            Vector2 resolvedVelocity = velocity;
+            Vector2 position = state.Position;
+            Depenetrate(ref position);
+            CollideAndSlide(ref position, ref resolvedVelocity, velocity * deltaTime);
+            state.Position = position;
+            state.Velocity = resolvedVelocity;
+            if (velocity.magnitude > config.FacingThreshold)
+            {
+                state.Facing = velocity.normalized;
+            }
+        }
+
         private void Depenetrate(ref Vector2 position)
         {
             float radius = config.CollisionRadius;

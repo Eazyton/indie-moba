@@ -6,6 +6,7 @@
         "IndieMoba.Characters",
         "IndieMoba.Input",
         "IndieMoba.CameraSystem",
+        "IndieMoba.Combat",
         "IndieMoba.Presentation",
         "Unity.InputSystem",
         "Unity.RenderPipelines.Universal.Runtime",

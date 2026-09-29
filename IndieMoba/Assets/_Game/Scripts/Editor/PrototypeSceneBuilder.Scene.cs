@@ -1,7 +1,10 @@
 using System.Linq;
 using IndieMoba.CameraSystem;
 using IndieMoba.Characters;
+using IndieMoba.Combat;
+using IndieMoba.Core;
 using IndieMoba.Input;
+using IndieMoba.Presentation;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -108,6 +111,23 @@ namespace IndieMoba.EditorTools
             // Gameplay
             var gameplay = new GameObject("Gameplay");
 
+            // Simulation
+            var simulationGO = new GameObject("Simulation");
+            simulationGO.transform.SetParent(gameplay.transform, false);
+            var runner = simulationGO.AddComponent<SimulationTickRunner>();
+            var runnerSo = new SerializedObject(runner);
+            runnerSo.FindProperty("tickRate").floatValue = 60f;
+            runnerSo.FindProperty("maxTicksPerFrame").intValue = 5;
+            runnerSo.ApplyModifiedPropertiesWithoutUndo();
+
+            // CombatWorld
+            var combatWorldGO = new GameObject("CombatWorld");
+            combatWorldGO.transform.SetParent(gameplay.transform, false);
+            var combatWorld = combatWorldGO.AddComponent<CombatWorld>();
+            var combatWorldSo = new SerializedObject(combatWorld);
+            combatWorldSo.FindProperty("runner").objectReferenceValue = runner;
+            combatWorldSo.ApplyModifiedPropertiesWithoutUndo();
+
             // Main Camera
             var cameraGO = new GameObject("Main Camera");
             cameraGO.tag = "MainCamera";
@@ -142,6 +162,11 @@ namespace IndieMoba.EditorTools
             inputSo.FindProperty("moveAction").objectReferenceValue = FindInputActionReference("Move");
             inputSo.FindProperty("moveToPointAction").objectReferenceValue = FindInputActionReference("MoveToPoint");
             inputSo.FindProperty("pointerPositionAction").objectReferenceValue = FindInputActionReference("PointerPosition");
+            inputSo.FindProperty("basicAttackAction").objectReferenceValue = FindInputActionReferenceOrWarn("BasicAttack");
+            inputSo.FindProperty("ability1Action").objectReferenceValue = FindInputActionReferenceOrWarn("Ability1");
+            inputSo.FindProperty("ability2Action").objectReferenceValue = FindInputActionReferenceOrWarn("Ability2");
+            inputSo.FindProperty("ability3Action").objectReferenceValue = FindInputActionReferenceOrWarn("Ability3");
+            inputSo.FindProperty("ultimateAction").objectReferenceValue = FindInputActionReferenceOrWarn("Ultimate");
             inputSo.FindProperty("worldCamera").objectReferenceValue = cam;
             inputSo.ApplyModifiedPropertiesWithoutUndo();
 
@@ -152,11 +177,75 @@ namespace IndieMoba.EditorTools
             var heroActor = heroInstance.GetComponent<HeroActor>();
             var heroSo = new SerializedObject(heroActor);
             heroSo.FindProperty("inputSourceBehaviour").objectReferenceValue = inputSource;
+            heroSo.FindProperty("runner").objectReferenceValue = runner;
             heroSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var heroHealth = heroInstance.GetComponent<Health>();
+            var heroHealthSo = new SerializedObject(heroHealth);
+            heroHealthSo.FindProperty("runner").objectReferenceValue = runner;
+            heroHealthSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var heroTarget = heroInstance.GetComponent<CombatTarget>();
+            var heroTargetSo = new SerializedObject(heroTarget);
+            heroTargetSo.FindProperty("world").objectReferenceValue = combatWorld;
+            heroTargetSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var heroCombat = heroInstance.GetComponent<HeroCombat>();
+            var heroCombatSo = new SerializedObject(heroCombat);
+            heroCombatSo.FindProperty("runner").objectReferenceValue = runner;
+            heroCombatSo.FindProperty("world").objectReferenceValue = combatWorld;
+            heroCombatSo.FindProperty("abilityInputBehaviour").objectReferenceValue = inputSource;
+            heroCombatSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var heroAudioHooks = heroInstance.transform.Find("VisualRoot").GetComponent<CombatAudioHooks>();
+            var heroAudioHooksSo = new SerializedObject(heroAudioHooks);
+            heroAudioHooksSo.FindProperty("world").objectReferenceValue = combatWorld;
+            heroAudioHooksSo.ApplyModifiedPropertiesWithoutUndo();
 
             rigSo = new SerializedObject(rig);
             rigSo.FindProperty("target").objectReferenceValue = heroInstance.transform.Find("VisualRoot");
             rigSo.ApplyModifiedPropertiesWithoutUndo();
+
+            // Combat dummies
+            var dummyPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(CombatDummyPrefabPath);
+            var dummyA = (GameObject)PrefabUtility.InstantiatePrefab(dummyPrefab, scene);
+            dummyA.name = "CombatDummy_A";
+            dummyA.transform.SetParent(gameplay.transform, false);
+            dummyA.transform.localPosition = new Vector3(10.5f, 11.25f, 0f);
+            ConfigureDummyInstance(dummyA, runner, combatWorld);
+            var dummyB = (GameObject)PrefabUtility.InstantiatePrefab(dummyPrefab, scene);
+            dummyB.name = "CombatDummy_B";
+            dummyB.transform.SetParent(gameplay.transform, false);
+            dummyB.transform.localPosition = new Vector3(13.5f, 9.75f, 0f);
+            ConfigureDummyInstance(dummyB, runner, combatWorld);
+
+            // CombatPresentation
+            var combatPresentation = new GameObject("CombatPresentation");
+            combatPresentation.transform.SetParent(gameplay.transform, false);
+            var projectileSpawner = combatPresentation.AddComponent<ProjectileViewSpawner>();
+            var projectileSpawnerSo = new SerializedObject(projectileSpawner);
+            projectileSpawnerSo.FindProperty("world").objectReferenceValue = combatWorld;
+            projectileSpawnerSo.FindProperty("container").objectReferenceValue = combatPresentation.transform;
+            projectileSpawnerSo.ApplyModifiedPropertiesWithoutUndo();
+            var telegraphSpawner = combatPresentation.AddComponent<AreaTelegraphSpawner>();
+            var telegraphSpawnerSo = new SerializedObject(telegraphSpawner);
+            telegraphSpawnerSo.FindProperty("world").objectReferenceValue = combatWorld;
+            telegraphSpawnerSo.FindProperty("circleSprite").objectReferenceValue = LoadSprite(CircleSpritePath);
+            telegraphSpawnerSo.FindProperty("ringSprite").objectReferenceValue = LoadSprite(RingSpritePath);
+            telegraphSpawnerSo.ApplyModifiedPropertiesWithoutUndo();
+            var feedbackSpawner = combatPresentation.AddComponent<CombatFeedbackSpawner>();
+            var feedbackSpawnerSo = new SerializedObject(feedbackSpawner);
+            feedbackSpawnerSo.FindProperty("world").objectReferenceValue = combatWorld;
+            feedbackSpawnerSo.FindProperty("playerTarget").objectReferenceValue = heroInstance.transform;
+            feedbackSpawnerSo.FindProperty("sparkSprite").objectReferenceValue = LoadSprite(SparkSpritePath);
+            feedbackSpawnerSo.ApplyModifiedPropertiesWithoutUndo();
+            var debugOverlay = combatPresentation.AddComponent<CombatDebugOverlay>();
+            var debugOverlaySo = new SerializedObject(debugOverlay);
+            debugOverlaySo.FindProperty("hero").objectReferenceValue = heroCombat;
+            debugOverlaySo.FindProperty("trackedHealth").arraySize = 2;
+            debugOverlaySo.FindProperty("trackedHealth").GetArrayElementAtIndex(0).objectReferenceValue = dummyA.GetComponent<Health>();
+            debugOverlaySo.FindProperty("trackedHealth").GetArrayElementAtIndex(1).objectReferenceValue = dummyB.GetComponent<Health>();
+            debugOverlaySo.ApplyModifiedPropertiesWithoutUndo();
 
             // Global Light 2D
             var lightGO = new GameObject("Global Light 2D");
@@ -171,6 +260,34 @@ namespace IndieMoba.EditorTools
                 throw new System.InvalidOperationException("Failed to save scene: " + ScenePath);
             }
             EditorBuildSettings.scenes = new[] { new EditorBuildSettingsScene(ScenePath, true) };
+        }
+
+        private static InputActionReference FindInputActionReferenceOrWarn(string actionName)
+        {
+            var reference = FindInputActionReference(actionName);
+            if (reference == null)
+            {
+                LogWarning("Missing input action reference: " + actionName);
+            }
+            return reference;
+        }
+
+        private static void ConfigureDummyInstance(GameObject instance, SimulationTickRunner runner, CombatWorld world)
+        {
+            var health = instance.GetComponent<Health>();
+            var healthSo = new SerializedObject(health);
+            healthSo.FindProperty("runner").objectReferenceValue = runner;
+            healthSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var dummy = instance.GetComponent<CombatDummy>();
+            var dummySo = new SerializedObject(dummy);
+            dummySo.FindProperty("runner").objectReferenceValue = runner;
+            dummySo.ApplyModifiedPropertiesWithoutUndo();
+
+            var target = instance.GetComponent<CombatTarget>();
+            var targetSo = new SerializedObject(target);
+            targetSo.FindProperty("world").objectReferenceValue = world;
+            targetSo.ApplyModifiedPropertiesWithoutUndo();
         }
     }
 }
