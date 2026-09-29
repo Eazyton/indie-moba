@@ -132,7 +132,7 @@ Prototype kit (values from the demo `balance.ts`, 32 px = 1 unit):
 
 | Slot | Behaviour | Values |
 |---|---|---|
-| Basic attack (LMB) | `BasicAttackBehaviour`: targeted, not a skillshot. Selects a hostile `ICombatTarget` whose edge is within range and inside the aim cone around the cursor direction (or within close range regardless of angle), scored by distance + angle. Spawns a homing projectile that damages that target on arrival. No target -> denied, no cooldown. | cd 0.8 s, dmg 58, range 4.69, cone 43 deg, close 0.875, speed 18 |
+| Basic attack (LMB) | `BasicAttackBehaviour`: targeted, not a skillshot. Selects a hostile `ICombatTarget` whose edge is within range and inside the aim cone around the cursor direction (or within close range regardless of angle), scored by distance + angle. Spawns a homing projectile that damages that target on arrival. No target: if the config has `canBasicAttackWithoutTarget`, fires a linear projectile toward the cursor up to range that damages the first hostile it crosses (cooldown consumed even on a miss); otherwise denied, no cooldown. Nilo: enabled. | cd 0.8 s, dmg 58, range 4.69, cone 43 deg, close 0.875, speed 18 |
 | Q | `LinearProjectileBehaviour`: skillshot toward the cursor, hits the first hostile along its path | cd 8 s, dmg 80, range 12.5, speed 20, radius 0.34 |
 | W | `ShieldBehaviour`: shield on own `Health` | cd 15 s, 200 for 4 s |
 | E | `DashBehaviour`: `HeroActor.StartForcedMove` toward the cursor; uses the same collide-and-slide as movement (`CharacterMotor.SimulateForced`), so it cannot cross blocked terrain | cd 10 s, 6.25 u in 0.17 s |
@@ -253,6 +253,17 @@ Planning only; nothing beyond Phase 2 is implemented.
 - AutoTarget: cone selector via `CombatWorld.FindBasicAttackTarget` (current Phase 2 behaviour, used by all current input).
 - ExplicitTarget: the given hostile, alive target if within range; otherwise no target.
 - AttackMoveTarget: not implemented yet; falls back to AutoTarget.
+
+If no valid target results (including an invalid explicit target), `canBasicAttackWithoutTarget` decides between a directional attack and a `NoTarget` denial.
+
+## Basic attack events
+
+`HeroCombat` exposes three distinct events:
+- `BasicAttackRequested(AbilityCommand)`: every basic attack command handled, before cooldown/target checks.
+- `BasicAttackPerformed(BasicAttackPerformedInfo)`: the attack actually happened and its cooldown started, whether or not it will hit. Info: `AttackId`, `Origin`, `Direction`, `Target` (null when directional), `IsTargeted`, `Targeting`.
+- `BasicAttackHit(ICombatTarget, DamageResult)`: basic attack damage from this hero was applied to a target (filtered from `CombatWorld.DamageApplied`).
+
+Passives that trigger on attacking should use Performed; lifesteal and on-hit effects should use Hit. No passives, items or on-hit systems exist yet. Future directional, melee and modified attacks should keep raising the same events.
 
 Intended future controls. PC: right click ground = move, right click enemy = move/attack that enemy, attack-move = move and attack an eligible target, Q/W/E/R = abilities. Mobile: attack button = auto target, future hero/minion/tower priority buttons, future target lock.
 

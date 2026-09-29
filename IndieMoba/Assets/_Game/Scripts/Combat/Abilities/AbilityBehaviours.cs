@@ -88,9 +88,32 @@ namespace IndieMoba.Combat
         }
     }
 
+    public readonly struct BasicAttackPerformedInfo
+    {
+        public readonly int AttackId;
+        public readonly Vector2 Origin;
+        public readonly Vector2 Direction;
+        public readonly ICombatTarget Target;
+        public readonly BasicAttackTargeting Targeting;
+
+        public BasicAttackPerformedInfo(int attackId, Vector2 origin, Vector2 direction, ICombatTarget target, BasicAttackTargeting targeting)
+        {
+            AttackId = attackId;
+            Origin = origin;
+            Direction = direction;
+            Target = target;
+            Targeting = targeting;
+        }
+
+        public bool IsTargeted => Target != null;
+    }
+
     public sealed class BasicAttackBehaviour : IAbilityBehaviour
     {
+        private int attackCounter;
+
         public ICombatTarget LastTarget { get; private set; }
+        public BasicAttackPerformedInfo LastPerformed { get; private set; }
         public bool IsActive => false;
 
         public bool TryExecute(in AbilityContext context, AbilityConfig config, out AbilityFailReason reason)
@@ -98,13 +121,23 @@ namespace IndieMoba.Combat
             BasicAttackQuery query = new BasicAttackQuery(context.Position, context.AimDirection, config.Range,
                 config.HalfArcRadians, config.CloseRange, context.Team, context.Self);
             ICombatTarget target = ResolveTarget(context, query);
-            if (target == null)
+            if (target == null && !config.CanBasicAttackWithoutTarget)
             {
                 reason = AbilityFailReason.NoTarget;
                 return false;
             }
+            ProjectileSpec spec = target != null ? BuildTargetedSpec(context, config, target) : BuildDirectionalSpec(context, config);
+            context.World.SpawnProjectile(spec);
             LastTarget = target;
-            ProjectileSpec spec = new ProjectileSpec
+            Vector2 direction = target != null ? SafeDirection(target.Position - context.Position, context.AimDirection) : context.AimDirection;
+            LastPerformed = new BasicAttackPerformedInfo(++attackCounter, context.Position, direction, target, context.Targeting);
+            reason = AbilityFailReason.None;
+            return true;
+        }
+
+        private static ProjectileSpec BuildTargetedSpec(in AbilityContext context, AbilityConfig config, ICombatTarget target)
+        {
+            return new ProjectileSpec
             {
                 Motion = ProjectileMotion.Homing,
                 Origin = context.Position,
@@ -115,9 +148,27 @@ namespace IndieMoba.Combat
                 Damage = context.MakeDamage(config.Damage),
                 ViewPrefab = config.ProjectileViewPrefab
             };
-            context.World.SpawnProjectile(spec);
-            reason = AbilityFailReason.None;
-            return true;
+        }
+
+        private static ProjectileSpec BuildDirectionalSpec(in AbilityContext context, AbilityConfig config)
+        {
+            return new ProjectileSpec
+            {
+                Motion = ProjectileMotion.Linear,
+                Origin = context.Position,
+                Direction = context.AimDirection,
+                Speed = config.Speed,
+                HitRadius = config.Radius,
+                MaxDistance = config.Range,
+                MaxLifetime = config.Speed > 0f ? config.Range / config.Speed + 0.5f : 5f,
+                Damage = context.MakeDamage(config.Damage),
+                ViewPrefab = config.ProjectileViewPrefab
+            };
+        }
+
+        private static Vector2 SafeDirection(Vector2 direction, Vector2 fallback)
+        {
+            return direction.sqrMagnitude > 1e-8f ? direction.normalized : fallback;
         }
 
         private static ICombatTarget ResolveTarget(in AbilityContext context, in BasicAttackQuery query)

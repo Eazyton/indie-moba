@@ -52,6 +52,9 @@ namespace IndieMoba.Combat
         public event Action<AbilitySlot, AbilityConfig> AbilityCompleted;
         public event Action<AbilitySlot, float> CooldownStarted;
         public event Action<AbilitySlot, AbilityFailReason> ActivationDenied;
+        public event Action<AbilityCommand> BasicAttackRequested;
+        public event Action<BasicAttackPerformedInfo> BasicAttackPerformed;
+        public event Action<ICombatTarget, DamageResult> BasicAttackHit;
 
         public int SimulationOrder => Core.SimulationOrder.Abilities;
         public IReadOnlyList<AbilitySlotRuntime> Slots => slots;
@@ -123,6 +126,10 @@ namespace IndieMoba.Combat
         private void TryActivate(in AbilityCommand command)
         {
             AbilitySlotRuntime runtime = slots[(int)command.Slot];
+            if (command.Slot == AbilitySlot.BasicAttack)
+            {
+                BasicAttackRequested?.Invoke(command);
+            }
             AbilityFailReason reason;
             if (!runtime.IsConfigured)
             {
@@ -139,6 +146,10 @@ namespace IndieMoba.Combat
             else if (runtime.Behaviour.TryExecute(BuildContext(command.Slot, command), runtime.Config, out reason))
             {
                 runtime.Cooldown.Start(runtime.Config.Cooldown);
+                if (runtime.Behaviour is BasicAttackBehaviour basic)
+                {
+                    BasicAttackPerformed?.Invoke(basic.LastPerformed);
+                }
                 AbilityStarted?.Invoke(runtime.Slot, runtime.Config);
                 CooldownStarted?.Invoke(runtime.Slot, runtime.Config.Cooldown);
                 if (runtime.IsActive)
@@ -165,6 +176,14 @@ namespace IndieMoba.Combat
             Vector2 facing = actor != null ? actor.State.Facing : Vector2.right;
             return new AbilityContext(slot, gameObject, position, position + aimOriginOffset, command.AimPoint, command.HasAim,
                 facing, Team, world, health, actor, self, command.Targeting, command.ExplicitTarget as ICombatTarget);
+        }
+
+        private void HandleDamageApplied(ICombatTarget target, DamageResult result)
+        {
+            if (result.Applied && result.Info.Slot == AbilitySlot.BasicAttack && result.Info.Source == gameObject)
+            {
+                BasicAttackHit?.Invoke(target, result);
+            }
         }
 
         private void HandleDied(Health _)
@@ -208,6 +227,7 @@ namespace IndieMoba.Combat
             if (runner == null) runner = FindAnyObjectByType<SimulationTickRunner>();
             if (world == null) world = FindAnyObjectByType<CombatWorld>();
             if (runner != null) runner.Register(this);
+            if (world != null) world.DamageApplied += HandleDamageApplied;
             if (health != null)
             {
                 health.Died += HandleDied;
@@ -218,6 +238,7 @@ namespace IndieMoba.Combat
         private void OnDisable()
         {
             if (runner != null) runner.Unregister(this);
+            if (world != null) world.DamageApplied -= HandleDamageApplied;
             if (health != null)
             {
                 health.Died -= HandleDied;

@@ -170,6 +170,7 @@ namespace IndieMoba.EditorTools
                 so.FindProperty("radius").floatValue = 0.125f;
                 so.FindProperty("halfArcDegrees").floatValue = 43f;
                 so.FindProperty("closeRange").floatValue = 0.875f;
+                so.FindProperty("canBasicAttackWithoutTarget").boolValue = true;
                 so.FindProperty("projectileViewPrefab").objectReferenceValue = basicAttackPrefab;
             });
             BuildAbilityConfig(QConfigPath, so =>

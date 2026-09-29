@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.2]
+
+### Added
+- `AbilityConfig.canBasicAttackWithoutTarget` (per basic attack, default off). When on and no valid target exists, the basic attack fires a linear projectile toward the cursor up to its range, damages the first hostile it crosses, and consumes the cooldown even on a miss. Enabled for Nilo (`Hero_BasicAttack`). Targeted behaviour is unchanged.
+- `HeroCombat` events `BasicAttackRequested`, `BasicAttackPerformed` (`BasicAttackPerformedInfo`) and `BasicAttackHit`.
+
 ## [0.2.1]
 
 ### Fixed

@@ -33,6 +33,8 @@ namespace IndieMoba.Combat
         [Range(0f, 180f)] [SerializeField] private float halfArcDegrees = 43f;
         [Tooltip("Basic attack: targets this close ignore the aim cone.")]
         [Min(0f)] [SerializeField] private float closeRange = 0.875f;
+        [Tooltip("Basic attack: when no valid target exists, still attack with a linear projectile toward the aim direction.")]
+        [SerializeField] private bool canBasicAttackWithoutTarget;
         [Tooltip("Minimum aim distance required to cast.")]
         [Min(0f)] [SerializeField] private float minAimDistance;
         [Tooltip("Presentation only. Gameplay never reads it.")]
@@ -51,6 +53,7 @@ namespace IndieMoba.Combat
         public float Delay => delay;
         public float HalfArcRadians => halfArcDegrees * Mathf.Deg2Rad;
         public float CloseRange => closeRange;
+        public bool CanBasicAttackWithoutTarget => canBasicAttackWithoutTarget;
         public float MinAimDistance => minAimDistance;
         public GameObject ProjectileViewPrefab => projectileViewPrefab;
     }
