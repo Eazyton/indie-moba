@@ -1,0 +1,70 @@
+# =========================
+# UNITY
+# =========================
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Unity generated
+*.csproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# =========================
+# IDE
+# =========================
+
+.vs/
+.vscode/
+.idea/
+
+# =========================
+# OS
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# BUILDS
+# =========================
+
+*.apk
+*.aab
+*.ipa
+
+# =========================
+# ENV / SECRETS
+# =========================
+
+.env
+.env.*
+*.keystore
+*.jks
+
+# =========================
+# NODE / REFERENCE PROJECT
+# =========================
+
+**/node_modules/
+**/.next/
+**/dist/
+**/.cache/
