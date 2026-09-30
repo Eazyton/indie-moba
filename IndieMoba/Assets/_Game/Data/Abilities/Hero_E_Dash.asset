@@ -25,5 +25,6 @@ MonoBehaviour:
   delay: 0
   halfArcDegrees: 43
   closeRange: 0.875
+  canBasicAttackWithoutTarget: 0
   minAimDistance: 0.125
   projectileViewPrefab: {fileID: 0}

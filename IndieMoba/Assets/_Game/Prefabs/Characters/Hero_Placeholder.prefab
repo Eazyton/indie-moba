@@ -82,6 +82,7 @@ MonoBehaviour:
   world: {fileID: 0}
   health: {fileID: 7841818162667535603}
   team: 1
+  kind: 0
   radius: 0.375
 --- !u!114 &5541025546494928555
 MonoBehaviour:

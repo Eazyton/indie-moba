@@ -14,6 +14,7 @@ namespace IndieMoba.Combat
         private float shield;
         private float shieldRemaining;
         private bool dead;
+        private IDamageFilter damageFilter;
 
         public event Action<DamageResult> DamageTaken;
         public event Action<float> Healed;
@@ -28,7 +29,19 @@ namespace IndieMoba.Combat
         public float ShieldRemaining => shieldRemaining;
         public bool IsDead => dead;
         public bool IsAlive => !dead;
+        public IDamageFilter DamageFilter => damageFilter;
         public int SimulationOrder => Core.SimulationOrder.State;
+
+        public void SetDamageFilter(IDamageFilter filter)
+        {
+            damageFilter = filter;
+        }
+
+        public void SetMaxHealth(float value, bool refill)
+        {
+            maxHealth = Mathf.Max(1f, value);
+            current = refill ? maxHealth : Mathf.Min(current, maxHealth);
+        }
 
         public DamageResult ApplyDamage(in DamageInfo info)
         {
@@ -36,7 +49,17 @@ namespace IndieMoba.Combat
             {
                 return new DamageResult(info, 0f, 0f, false);
             }
-            float remaining = info.Amount;
+            float amount = info.Amount;
+            DamageBlockReason reason = DamageBlockReason.None;
+            if (damageFilter != null)
+            {
+                amount = Mathf.Max(0f, damageFilter.FilterDamage(info, out reason));
+            }
+            if (amount <= 0f)
+            {
+                return new DamageResult(info, 0f, 0f, false, info.Amount, reason);
+            }
+            float remaining = amount;
             float absorbed = Mathf.Min(shield, remaining);
             if (absorbed > 0f)
             {
@@ -46,7 +69,7 @@ namespace IndieMoba.Combat
             float healthDamage = Mathf.Min(current, remaining);
             current -= healthDamage;
             bool killed = current <= 0f;
-            DamageResult result = new DamageResult(info, absorbed, healthDamage, killed);
+            DamageResult result = new DamageResult(info, absorbed, healthDamage, killed, info.Amount - amount, reason);
             DamageTaken?.Invoke(result);
             if (killed)
             {
@@ -121,6 +144,7 @@ namespace IndieMoba.Combat
         private void Awake()
         {
             current = maxHealth;
+            damageFilter = GetComponent<IDamageFilter>();
         }
 
         private void OnEnable()

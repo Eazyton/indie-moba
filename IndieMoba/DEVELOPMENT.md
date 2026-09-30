@@ -2,12 +2,13 @@
 
 Unity 6.3 (6000.3.25f1), URP 2D, new Input System only. This document covers the architecture, workflows and technical decisions of the project. Release notes live in `CHANGELOG.md`.
 
-## Current scope (Phase 2)
+## Current scope (Phase 3)
 
 - Phase 1: forest test area, controllable placeholder hero with collision-aware movement, pixel-perfect follow camera, input abstraction.
 - Phase 2: hero combat foundation - shared simulation tick, health/shield/damage, target abstraction, targeted basic attack, four placeholder abilities (Q/W/E/R) with cooldowns, two combat dummies, placeholder visual feedback, audio hook points and a debug overlay.
+- Phase 3: one functional prototype lane (70x27 world units) - minion waves, lane AI, towers, nexus, structure damage rules, win/lose result, debug revive.
 
-Not implemented yet: minions, towers, nexus, jungle, shop, items, XP, gold, levels, respawn, bots/AI, networking, backend, menus, HUD, audio content, final animation pipeline.
+Not implemented yet: 3 lanes, jungle, shop, items, XP, gold, levels, respawn, bots/AI, networking, backend, menus, HUD, audio content, final animation pipeline.
 
 ## Folder layout
 
@@ -229,20 +230,23 @@ A future server-authoritative model can run the same motor and combat code on th
 ## Known limitations
 
 - Play mode and visual output have not been verified by the automated build; only compilation and asset generation were checked in batch mode.
-- 27 props lie slightly outside the 0..40 x 0..27 camera bounds; they sit inside the blocked border and are unreachable.
+- Some props lie slightly outside the 0..70 x 0..27 camera bounds; they sit inside the blocked border and are unreachable.
 - The terrain is a single large sprite.
 - Physics queries use `Physics2D`, so exact float determinism across platforms is not guaranteed.
 - Combat Play mode behaviour has not been observed by the agent; it was verified by compilation only.
 - The damage flash tints the sprite (the default sprite shader has no white-fill mode).
 - Gamepad ability buttons exist but aim at the mouse pointer; gamepad aiming is not implemented.
 - `HeroCombat` blocks other abilities while dashing.
+- Lane Play mode behaviour (waves, fights, towers, result screen) has been verified by compilation only.
+- Minions are steered along waypoints with soft separation; there is no pathfinding, so minions pushed far off the lane rely on collide-and-slide.
+- The hero does not respawn; use the debug revive (F2 or the overlay button).
 
 ## Roadmap
 
-Planning only; nothing beyond Phase 2 is implemented.
+Planning only; nothing beyond Phase 3 is implemented.
 
-- **Phase 2 - Hero combat foundation** (current): health, damage, targeting, basic attack, Q/W/E/R, cooldowns, dummy.
-- **Phase 3 - Functional lane:** minions, waves, towers, nexus/base, structure damage, simple win condition.
+- **Phase 2 - Hero combat foundation**: health, damage, targeting, basic attack, Q/W/E/R, cooldowns, dummy.
+- **Phase 3 - Functional lane** (current): minions, waves, towers, nexus/base, structure damage, simple win condition.
 - **Phase 4 - Full MOBA map:** 3 lanes, two jungles, central river, two bases, tower placements, jungle entrances, camp areas, neutral objective pits, collision/navigation layout, 5v5-ready spatial scale.
 - **Phase 5 - Jungle:** monsters, camps, aggro, leash, reset, rewards, respawn, buffs.
 - **Later:** shop, items, economy, epic objectives, bots, multiplayer, server authority, matchmaking, account/backend, progression/meta, monetization.
@@ -268,3 +272,49 @@ Passives that trigger on attacking should use Performed; lifesteal and on-hit ef
 Intended future controls. PC: right click ground = move, right click enemy = move/attack that enemy, attack-move = move and attack an eligible target, Q/W/E/R = abilities. Mobile: attack button = auto target, future hero/minion/tower priority buttons, future target lock.
 
 Sorting layer IDs are stable: the scene builder never regenerates a valid existing ID and only saves the TagManager when it changes, because scenes, prefabs and Light2D reference layers by ID.
+
+## Phase 3 - Functional lane
+
+### Assemblies
+- `IndieMoba.Minions`: `MinionConfig`, `MinionController` (state machine Walking/Chasing/Attacking/Dead), `MinionCombat`, `MinionRegistry`, `IMinionFactory`.
+- `IndieMoba.Structures`: `Structure` (health gate, damage filter, blocking collider), `TowerConfig`, `TowerTargeting`, `TowerCombat`, `NexusObjective`.
+- `IndieMoba.Match`: `LanePath`, `WaveConfig`, `WaveSpawner`, `MatchController`.
+- Lane targeting policies live in `IndieMoba.Combat` (`Combat/Targeting/LaneTargeting.cs`).
+
+### Tick order
+Input (hero input, debug revive) -> Spawning (`WaveSpawner`) -> Actors (hero, minions, tower targeting) -> Abilities (hero abilities, tower attacks) -> Projectiles -> Damage -> State. `MatchController` pauses `SimulationTickRunner` when a nexus is destroyed.
+
+### Targets and damage
+- `ICombatTarget.Kind` is Hero, Minion, Structure or Other. Lane AI and towers only consider Hero, Minion and Structure; dummies are Other and are ignored by lane AI and towers but can still be damaged by the hero.
+- `Health` consults an optional `IDamageFilter`. `Structure` implements it:
+  - Only slots in `allowedDamageSlots` (default: BasicAttack) damage structures. Hero Q/W/E/R do not. Minion attacks are BasicAttack and are scaled by `MinionConfig.structureDamageMultiplier` (0.6).
+  - A structure with alive `requiredStructures` is invulnerable (the nexus requires its tower).
+  - Protection: when no attacking-team minions are within `protectionRadius`, incoming damage is multiplied by `protectedDamageMultiplier` (0.2). This is heavy damage reduction, not invulnerability. It is our prototype anti-backdoor rule, not an Honor of Kings value; disable with `protectionEnabled` or retune per structure.
+- Linear projectiles and areas skip structures unless `HitsStructures` is set (only directional basic attacks set it).
+
+### Minion target priority
+Default table (`MinionConfig.targetPriority`, editable per config): 0 enemy minion engaged with one of my allies, 1 other enemy minion, 2 enemy structure, 3 enemy hero. This order is our prototype decision, not the Honor of Kings implementation. There is no hero-aggression aggro. Minions keep a sticky target, retarget every `retargetIntervalTicks`, and drop targets beyond `leashRange`.
+
+### Towers
+Keep the current target while valid, else the nearest enemy minion, else the enemy hero. Homing BasicAttack projectiles; separate hero and minion damage in `TowerConfig`.
+
+### Nexus defense
+The nexus reuses `TowerTargeting` and `TowerCombat` with its own `NexusConfig` (range 9, hero 180, minion 140, interval 1.2 s, projectile speed 14, warning range 14; prototype values). `TowerConfig` and `NexusConfig` share the `StructureDefenseConfig` base. Invulnerability only blocks incoming damage, so the nexus attacks even while its tower stands.
+
+### Waves
+`WaveConfig`: first wave 4 s, interval 30 s, spawn gap 0.7 s, composition melee/ranged/melee/ranged/melee, lateral offsets -0.75/0/0.75. These are prototype values taken from our demo, not Honor of Kings values; they will be tuned for 15-20 minute matches.
+
+### Movement and collision
+Minions have no colliders or rigidbodies. They use the shared `CharacterMotor` against the Obstacle layer, soft separation between minions and a small structure-avoidance steer. Heroes and minions do not collide physically. Structures have a `CircleCollider2D` on the Obstacle layer and block movement; the collider is disabled when destroyed.
+
+### Match result
+The nexus is invulnerable while its tower stands. Destroying a nexus ends the match, pauses the simulation and shows VICTORY/DEFEAT with a Restart button (`MatchResultView`).
+
+### Presentation and debug (replaceable)
+- `MinionPresenter`, `StructureView` (rubble swap, invulnerable bubble, protection tint), `HealthBarView` (temporary world-space bars on minions, towers and nexus), `TowerRangeView` (range ring on towers and nexuses, shown when the hero is near an enemy structure or the structure has a target: subtle neutral with no target, blue when targeting a non-player target, red when targeting the player; presentation only).
+- Damage numbers only appear for interactions involving the player hero (`CombatFeedbackSpawner.onlyPlayerInvolved`); blocked hits show Invulnerable/Immune and protected hits append "(protected)".
+- `LaneDebugOverlay` (top right): wave timer, minion counts, structure HP/state, Revive Hero button. `HeroReviveTool`: F2 revives the hero at `HeroRespawnPoint`. Dev tooling only; there is no respawn gameplay.
+
+### Future work (not implemented)
+- Tower aggro switch: a tower should switch to an enemy hero who attacks an allied hero inside tower range.
+- Advanced minion aggro (reacting to hero aggression).

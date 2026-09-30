@@ -254,6 +254,7 @@ namespace IndieMoba.EditorTools
             var target = root.AddComponent<CombatTarget>();
             var targetSo = new SerializedObject(target);
             targetSo.FindProperty("team").enumValueIndex = 2;
+            targetSo.FindProperty("kind").intValue = (int)CombatTargetKind.Other;
             targetSo.FindProperty("radius").floatValue = 0.375f;
             targetSo.FindProperty("health").objectReferenceValue = health;
             targetSo.ApplyModifiedPropertiesWithoutUndo();

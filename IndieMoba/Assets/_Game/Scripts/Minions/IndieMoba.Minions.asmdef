@@ -1,0 +1,1 @@
+{"name":"IndieMoba.Minions","rootNamespace":"IndieMoba.Minions","references":["IndieMoba.Core","IndieMoba.Characters","IndieMoba.Combat"],"autoReferenced":true}

@@ -162,7 +162,8 @@ namespace IndieMoba.Combat
                 MaxDistance = config.Range,
                 MaxLifetime = config.Speed > 0f ? config.Range / config.Speed + 0.5f : 5f,
                 Damage = context.MakeDamage(config.Damage),
-                ViewPrefab = config.ProjectileViewPrefab
+                ViewPrefab = config.ProjectileViewPrefab,
+                HitsStructures = true
             };
         }
 

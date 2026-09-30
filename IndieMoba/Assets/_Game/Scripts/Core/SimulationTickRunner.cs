@@ -20,6 +20,8 @@ namespace IndieMoba.Core
 
         public event Action<int> TickCompleted;
 
+        public bool Paused { get; set; }
+
         public float TickRate => tickRate;
         public float TickDelta => 1f / tickRate;
         public int CurrentTick => currentTick;
@@ -72,6 +74,11 @@ namespace IndieMoba.Core
 
         private void Update()
         {
+            if (Paused)
+            {
+                accumulator = 0f;
+                return;
+            }
             accumulator += Time.deltaTime;
             int ticks = 0;
             while (accumulator >= TickDelta && ticks < maxTicksPerFrame)

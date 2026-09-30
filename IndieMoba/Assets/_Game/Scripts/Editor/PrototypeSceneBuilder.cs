@@ -27,10 +27,10 @@ namespace IndieMoba.EditorTools
         private const string CollisionCellSpritePath = "Assets/_Game/Art/Environment/_Placeholder/Debug/CollisionCell.png";
 
         private const float Ppu = 32f;
-        private const float CropX = 400f;
+        private const float CropX = 80f;
         private const float CropY = 696f;
         private const float CropH = 864f;
-        private const float MapWidth = 40f;
+        private const float MapWidth = 70f;
         private const float MapHeight = 27f;
         private const int ReferenceResolutionX = 960;
         private const int ReferenceResolutionY = 540;

@@ -43,7 +43,7 @@ namespace IndieMoba.Combat
             for (int i = 0; i < candidates.Count; i++)
             {
                 ICombatTarget candidate = candidates[i];
-                if (candidate == null || candidate == query.Self || !candidate.IsAlive || !TeamRules.AreHostile(query.Team, candidate.Team))
+                if (candidate == null || candidate == query.Self || !candidate.IsAlive || !TeamRules.AreHostile(query.Team, candidate.Team) || candidate.IsInvulnerable)
                 {
                     continue;
                 }

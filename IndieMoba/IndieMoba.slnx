@@ -1,9 +1,12 @@
 ﻿<Solution>
   <Project Path="IndieMoba.Presentation.csproj" />
+  <Project Path="IndieMoba.Structures.csproj" />
   <Project Path="IndieMoba.Input.csproj" />
   <Project Path="IndieMoba.Combat.csproj" />
+  <Project Path="IndieMoba.Match.csproj" />
   <Project Path="IndieMoba.Characters.csproj" />
+  <Project Path="IndieMoba.Editor.csproj" />
+  <Project Path="IndieMoba.Minions.csproj" />
   <Project Path="IndieMoba.CameraSystem.csproj" />
   <Project Path="IndieMoba.Core.csproj" />
-  <Project Path="IndieMoba.Editor.csproj" />
 </Solution>

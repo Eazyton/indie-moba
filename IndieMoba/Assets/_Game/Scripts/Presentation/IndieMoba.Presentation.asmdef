@@ -1,1 +1,1 @@
-{"name":"IndieMoba.Presentation","rootNamespace":"IndieMoba.Presentation","references":["IndieMoba.Core","IndieMoba.Characters","IndieMoba.Combat"],"autoReferenced":true}
+{"name":"IndieMoba.Presentation","rootNamespace":"IndieMoba.Presentation","references":["IndieMoba.Core","IndieMoba.Characters","IndieMoba.Combat","IndieMoba.Minions","IndieMoba.Structures","IndieMoba.Match","Unity.InputSystem"],"autoReferenced":true}

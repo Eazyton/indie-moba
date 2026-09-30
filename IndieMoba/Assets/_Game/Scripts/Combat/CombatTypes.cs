@@ -10,6 +10,22 @@ namespace IndieMoba.Combat
         Red = 2
     }
 
+    public enum CombatTargetKind
+    {
+        Hero = 0,
+        Minion = 1,
+        Structure = 2,
+        Other = 3
+    }
+
+    public enum DamageBlockReason
+    {
+        None = 0,
+        Invulnerable = 1,
+        Immune = 2,
+        Protected = 3
+    }
+
     public static class TeamRules
     {
         public static bool AreHostile(Team a, Team b) => a != b;
@@ -66,22 +82,38 @@ namespace IndieMoba.Combat
         public readonly float Absorbed;
         public readonly float HealthDamage;
         public readonly bool Killed;
+        public readonly float Mitigated;
+        public readonly DamageBlockReason BlockReason;
 
         public DamageResult(DamageInfo info, float absorbed, float healthDamage, bool killed)
+            : this(info, absorbed, healthDamage, killed, 0f, DamageBlockReason.None)
+        {
+        }
+
+        public DamageResult(DamageInfo info, float absorbed, float healthDamage, bool killed, float mitigated, DamageBlockReason blockReason)
         {
             Info = info;
             Absorbed = absorbed;
             HealthDamage = healthDamage;
             Killed = killed;
+            Mitigated = mitigated;
+            BlockReason = blockReason;
         }
 
         public bool Applied => Absorbed > 0f || HealthDamage > 0f;
+        public bool Blocked => BlockReason == DamageBlockReason.Invulnerable || BlockReason == DamageBlockReason.Immune;
     }
 
     public interface IDamageable
     {
         bool IsAlive { get; }
         DamageResult ApplyDamage(in DamageInfo info);
+    }
+
+    public interface IDamageFilter
+    {
+        bool IsInvulnerable { get; }
+        float FilterDamage(in DamageInfo info, out DamageBlockReason reason);
     }
 
     public interface ICombatTarget
@@ -92,5 +124,7 @@ namespace IndieMoba.Combat
         bool IsAlive { get; }
         IDamageable Damageable { get; }
         Transform Transform { get; }
+        CombatTargetKind Kind { get; }
+        bool IsInvulnerable { get; }
     }
 }

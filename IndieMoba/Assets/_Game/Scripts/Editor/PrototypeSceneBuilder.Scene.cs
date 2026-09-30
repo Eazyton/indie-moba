@@ -211,13 +211,15 @@ namespace IndieMoba.EditorTools
             var dummyA = (GameObject)PrefabUtility.InstantiatePrefab(dummyPrefab, scene);
             dummyA.name = "CombatDummy_A";
             dummyA.transform.SetParent(gameplay.transform, false);
-            dummyA.transform.localPosition = new Vector3(10.5f, 11.25f, 0f);
+            dummyA.transform.localPosition = new Vector3(32.5f, 22f, 0f);
             ConfigureDummyInstance(dummyA, runner, combatWorld);
             var dummyB = (GameObject)PrefabUtility.InstantiatePrefab(dummyPrefab, scene);
             dummyB.name = "CombatDummy_B";
             dummyB.transform.SetParent(gameplay.transform, false);
-            dummyB.transform.localPosition = new Vector3(13.5f, 9.75f, 0f);
+            dummyB.transform.localPosition = new Vector3(35f, 20.5f, 0f);
             ConfigureDummyInstance(dummyB, runner, combatWorld);
+
+            BuildLaneScene(scene, gameplay, runner, combatWorld, heroInstance, spawn);
 
             // CombatPresentation
             var combatPresentation = new GameObject("CombatPresentation");

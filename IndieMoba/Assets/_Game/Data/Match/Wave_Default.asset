@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 142518855505e7045a2a63b4eb2dd2bd, type: 3}
+  m_Name: Wave_Default
+  m_EditorClassIdentifier: IndieMoba.Match::IndieMoba.Match.WaveConfig
+  firstWaveDelay: 4
+  waveInterval: 30
+  spawnGap: 0.7
+  composition: 0000000001000000000000000100000000000000
+  lateralOffsets:
+  - -0.75
+  - 0
+  - 0.75
+  maxWaves: 0

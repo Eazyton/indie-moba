@@ -52,6 +52,7 @@ namespace IndieMoba.EditorTools
             ConfigureSingleSprite(CollisionCellSpritePath, SpriteAlignment.Center, Vector2.zero);
             ConfigureNiloSheet(NiloSheetPath);
             ConfigureCombatTextureImports();
+            ConfigureLaneTextureImports();
         }
 
         private static void ConfigureSingleSprite(string path, SpriteAlignment alignment, Vector2 pivot)
@@ -103,6 +104,7 @@ namespace IndieMoba.EditorTools
             BuildAnimations();
             BuildNiloAttackAnimation();
             BuildAnimatorController();
+            BuildLaneAssets();
             AssetDatabase.SaveAssets();
         }
 
@@ -256,6 +258,7 @@ namespace IndieMoba.EditorTools
             BuildHeroPrefab();
             BuildCombatDummyPrefab();
             BuildEnvironmentPrefabs();
+            BuildLanePrefabs();
         }
 
         private static void BuildNiloVisualPrefab()
@@ -339,6 +342,7 @@ namespace IndieMoba.EditorTools
             var target = root.AddComponent<CombatTarget>();
             var targetSo = new SerializedObject(target);
             targetSo.FindProperty("team").enumValueIndex = 1;
+            targetSo.FindProperty("kind").intValue = (int)CombatTargetKind.Hero;
             targetSo.FindProperty("radius").floatValue = 0.375f;
             targetSo.FindProperty("health").objectReferenceValue = health;
             targetSo.ApplyModifiedPropertiesWithoutUndo();

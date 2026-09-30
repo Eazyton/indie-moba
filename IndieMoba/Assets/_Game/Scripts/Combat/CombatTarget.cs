@@ -8,6 +8,7 @@ namespace IndieMoba.Combat
         [SerializeField] private CombatWorld world;
         [SerializeField] private Health health;
         [SerializeField] private Team team = Team.Neutral;
+        [SerializeField] private CombatTargetKind kind = CombatTargetKind.Other;
         [Min(0.01f)] [SerializeField] private float radius = 0.375f;
 
         public Vector2 Position => transform.position;
@@ -18,10 +19,17 @@ namespace IndieMoba.Combat
         public Transform Transform => transform;
         public Health Health => health;
         public CombatWorld World => world;
+        public CombatTargetKind Kind => kind;
+        public bool IsInvulnerable => health != null && health.DamageFilter != null && health.DamageFilter.IsInvulnerable;
 
         public void SetTeam(Team value)
         {
             team = value;
+        }
+
+        public void SetKind(CombatTargetKind value)
+        {
+            kind = value;
         }
 
         private void Awake()

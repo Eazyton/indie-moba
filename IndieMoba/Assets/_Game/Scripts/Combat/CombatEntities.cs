@@ -20,6 +20,7 @@ namespace IndieMoba.Combat
         public float MaxLifetime;
         public DamageInfo Damage;
         public GameObject ViewPrefab;
+        public bool HitsStructures;
     }
 
     public sealed class ProjectileState
@@ -40,6 +41,7 @@ namespace IndieMoba.Combat
         public DamageInfo Damage;
         public GameObject ViewPrefab;
         public bool Alive;
+        public bool HitsStructures;
     }
 
     public struct AreaSpec
@@ -48,6 +50,7 @@ namespace IndieMoba.Combat
         public float Radius;
         public float Delay;
         public DamageInfo Damage;
+        public bool HitsStructures;
     }
 
     public sealed class DelayedAreaState
@@ -59,6 +62,7 @@ namespace IndieMoba.Combat
         public float Elapsed;
         public DamageInfo Damage;
         public bool Resolved;
+        public bool HitsStructures;
 
         public float NormalizedProgress => Delay > 0f ? Mathf.Clamp01(Elapsed / Delay) : 1f;
     }

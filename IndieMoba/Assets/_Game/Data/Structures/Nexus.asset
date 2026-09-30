@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6bfef0a0367994ebef8cc70f4e3ea6, type: 3}
+  m_Name: Nexus
+  m_EditorClassIdentifier: IndieMoba.Structures::IndieMoba.Structures.NexusConfig
+  range: 9
+  heroDamage: 180
+  minionDamage: 140
+  attackInterval: 1.2
+  projectileSpeed: 14
+  projectileHitRadius: 0.1875
+  projectileMaxLifetime: 3
+  projectileOriginOffset: {x: 0, y: 1.5}
+  warningRange: 14
+  projectileViewPrefab: {fileID: 4930183972891561226, guid: 7944306ae086a6144b59a7685b87018d, type: 3}

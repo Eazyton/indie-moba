@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.3.1] - 2026-09-30
+
+### Added
+- Nexus defense: the nexus attacks enemy minions, then the enemy hero, using `TowerTargeting`/`TowerCombat`, a separate `NexusConfig`, a placeholder `NexusProjectile` and the same range ring rules as towers. It attacks even while invulnerable.
+
+### Changed
+- `TowerConfig` fields moved to the shared `StructureDefenseConfig` base (no value or behaviour change).
+
+## [0.3.0] - 2026-09-29 - Phase 3: Functional lane
+
+### Added
+- Assemblies `IndieMoba.Minions`, `IndieMoba.Structures`, `IndieMoba.Match`.
+- Minion waves (melee/ranged) with lane waypoints, configurable target priority, soft separation, corpse delay.
+- Towers (sticky target, minions before hero, homing projectiles) and nexus (invulnerable while its tower stands).
+- Structure damage rules: BasicAttack only, minion multiplier 0.6, configurable anti-backdoor damage reduction when no attacking minions are near.
+- `MatchController` victory/defeat, simulation pause, `MatchResultView` with Restart.
+- `CombatTargetKind`, `IDamageFilter`, `DamageBlockReason`; dummies are `Other` and ignored by lane AI.
+- Temporary health bars, tower range warning, structure views, minion presenter, `LaneDebugOverlay`, `HeroReviveTool` (F2).
+- Exported placeholder art: minion sheets, towers, nexus, crystals, rubble, arrow and tower projectiles; full-lane terrain crop (2240x864 px).
+
+### Changed
+- Prototype area widened to 70x27 world units; hero spawn (12.5, 11.25); dummies moved to the north clearing.
+- Damage numbers only for interactions involving the player hero.
+
 ## [0.2.2]
 
 ### Added

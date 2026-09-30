@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 801b38c82cd3044438eff6e46406d61f, type: 3}
+  m_Name: Minion_Ranged
+  m_EditorClassIdentifier: IndieMoba.Minions::IndieMoba.Minions.MinionConfig
+  attackType: 1
+  maxHealth: 200
+  damage: 30
+  attackRange: 6.25
+  attackInterval: 1.3
+  radius: 0.25
+  aggroRange: 7.8125
+  leashRange: 10
+  structureDamageMultiplier: 0.6
+  projectileSpeed: 11.875
+  projectileHitRadius: 0.125
+  projectileOriginOffset: {x: 0, y: 0.4}
+  projectileViewPrefab: {fileID: 3601885287419300857, guid: 98a4fceb6a7d68b4b9123893f9c8bb8b, type: 3}
+  movementConfig: {fileID: 11400000, guid: 3f61398a3e99c864b900ebb33161369e, type: 2}
+  retargetIntervalTicks: 15
+  targetStickiness: 1.25
+  corpseDuration: 1
+  waypointReachDistance: 0.5
+  separationRadius: 0.6
+  separationStrength: 1.2
+  structureAvoidanceDistance: 1
+  structureAvoidanceStrength: 1.5
+  targetPriority: 00000000010000000200000003000000

@@ -8,6 +8,7 @@ namespace IndieMoba.Presentation
     {
         [SerializeField] private CombatWorld world;
         [SerializeField] private Transform playerTarget;
+        [SerializeField] private bool onlyPlayerInvolved = true;
         [SerializeField] private Font font;
         [SerializeField] private float heightOffset = 1.1f;
         [SerializeField] private float riseDistance = 1.0625f;
@@ -62,7 +63,11 @@ namespace IndieMoba.Presentation
 
         private void HandleDamageApplied(ICombatTarget target, DamageResult result)
         {
-            if (!result.Applied || target == null)
+            if (target == null || (!result.Applied && result.BlockReason == DamageBlockReason.None))
+            {
+                return;
+            }
+            if (onlyPlayerInvolved && !IsPlayerInvolved(target, result))
             {
                 return;
             }
@@ -76,14 +81,48 @@ namespace IndieMoba.Presentation
             }
         }
 
+        private bool IsPlayerInvolved(ICombatTarget target, DamageResult result)
+        {
+            if (playerTarget == null)
+            {
+                return true;
+            }
+            if (target.Transform == playerTarget)
+            {
+                return true;
+            }
+            return result.Info.Source != null && result.Info.Source.transform == playerTarget;
+        }
+
         private void ShowFeedback(ICombatTarget target, DamageResult result)
         {
             Vector3 position = new Vector3(target.Position.x, target.Position.y + heightOffset, 0f);
-            string text = result.HealthDamage <= 0f && result.Absorbed > 0f
-                ? "(absorbed)"
-                : Mathf.RoundToInt(result.HealthDamage).ToString();
+            string text;
+            if (result.BlockReason == DamageBlockReason.Invulnerable)
+            {
+                text = "Invulnerable";
+            }
+            else if (result.BlockReason == DamageBlockReason.Immune)
+            {
+                text = "Immune";
+            }
+            else if (result.HealthDamage <= 0f && result.Absorbed > 0f)
+            {
+                text = "(absorbed)";
+            }
+            else
+            {
+                text = Mathf.RoundToInt(result.HealthDamage).ToString();
+                if (result.BlockReason == DamageBlockReason.Protected)
+                {
+                    text += " (protected)";
+                }
+            }
             SpawnText(position, text, ResolveColor(target, result));
-            SpawnSparks(position);
+            if (result.Applied)
+            {
+                SpawnSparks(position);
+            }
         }
 
         private Color ResolveColor(ICombatTarget target, DamageResult result)

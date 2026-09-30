@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb48a0dd89a3064fb2fae1825fecb0f, type: 3}
+  m_Name: Tower
+  m_EditorClassIdentifier: IndieMoba.Structures::IndieMoba.Structures.TowerConfig
+  range: 7.8125
+  heroDamage: 145
+  minionDamage: 115
+  attackInterval: 1.1
+  projectileSpeed: 13.4375
+  projectileHitRadius: 0.1875
+  projectileMaxLifetime: 3
+  projectileOriginOffset: {x: 0, y: 1.3}
+  warningRange: 13.125
+  projectileViewPrefab: {fileID: 6287972460617023016, guid: b3ed6d8abd5e3f34e8e110c5f1f23639, type: 3}

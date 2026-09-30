@@ -26,8 +26,8 @@ const scene = {
   },
 };
 
-// Prototype area crop in demo world pixels (blue side of the mid lane + jungle clearing).
-const CROP = { x: 400, y: 696, w: 1280, h: 864 };
+// Prototype area crop in demo world pixels (full mid lane + jungle clearing).
+const CROP = { x: 80, y: 696, w: 2240, h: 864 };
 const CELL = 16;
 const HERO_RADIUS = 12;
 
@@ -36,6 +36,11 @@ const TEXTURES = [
   'tree-0', 'tree-1', 'tree-2', 'bush-0', 'bush-1', 'rock-0', 'rock-1', 'rock-2',
   'mush-0', 'mush-1', 'flower-0', 'flower-1', 'flower-2', 'flower-3',
   'pillar-0', 'pillar-1', 'ruin-wall', 'crystal-deco',
+  'vex', 'proj-q', 'bark-ring', 'px-spark', 'px-ember',
+  'minion-melee-0', 'minion-melee-1', 'minion-ranged-0', 'minion-ranged-1',
+  'tower-0', 'tower-1', 'tower-crystal-0', 'tower-crystal-1',
+  'nexus-0', 'nexus-1', 'nexus-crystal-0', 'nexus-crystal-1', 'rubble',
+  'proj-arrow', 'proj-tower',
 ];
 
 function run(): unknown {
@@ -102,8 +107,8 @@ function run(): unknown {
     crop: CROP,
     cellSize: CELL,
     textures: out,
-    anims: anims.filter((a) => a.key.startsWith('nilo-')),
-    layout: { props, blocked, heroSpawn: { x: 600, y: 1200 } },
+    anims: anims.filter((a) => a.key.startsWith('nilo-') || a.key.startsWith('minion-')),
+    layout: { props, blocked, heroSpawn: { x: 480, y: 1200 } },
   };
 }
 

@@ -75,6 +75,25 @@ namespace IndieMoba.Combat
             return results.Count;
         }
 
+        public int CountHostileUnits(Vector2 center, float radius, Team team, CombatTargetKind kind)
+        {
+            int count = 0;
+            for (int i = 0; i < targets.Count; i++)
+            {
+                ICombatTarget target = targets[i];
+                if (!target.IsAlive || target.Kind != kind || !TeamRules.AreHostile(team, target.Team))
+                {
+                    continue;
+                }
+                float reach = radius + target.Radius;
+                if ((target.Position - center).sqrMagnitude <= reach * reach)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public void QueueDamage(ICombatTarget target, in DamageInfo info)
         {
             if (target != null && target.Damageable != null)
@@ -102,6 +121,7 @@ namespace IndieMoba.Combat
             p.MaxLifetime = spec.MaxLifetime > 0f ? spec.MaxLifetime : 5f;
             p.Damage = spec.Damage;
             p.ViewPrefab = spec.ViewPrefab;
+            p.HitsStructures = spec.HitsStructures;
             p.Alive = true;
             projectiles.Add(p);
             ProjectileSpawned?.Invoke(p);
@@ -118,6 +138,7 @@ namespace IndieMoba.Combat
                 Delay = Mathf.Max(0f, spec.Delay),
                 Elapsed = 0f,
                 Damage = spec.Damage,
+                HitsStructures = spec.HitsStructures,
                 Resolved = false
             };
             areas.Add(area);
@@ -188,7 +209,8 @@ namespace IndieMoba.Combat
             for (int i = 0; i < targets.Count; i++)
             {
                 ICombatTarget target = targets[i];
-                if (!target.IsAlive || !TeamRules.AreHostile(p.Damage.SourceTeam, target.Team))
+                if (!target.IsAlive || !TeamRules.AreHostile(p.Damage.SourceTeam, target.Team) ||
+                    (target.Kind == CombatTargetKind.Structure && !p.HitsStructures))
                 {
                     continue;
                 }
@@ -226,7 +248,12 @@ namespace IndieMoba.Combat
                 FindHostileTargetsInCircle(area.Center, area.Radius, area.Damage.SourceTeam, queryBuffer);
                 for (int t = 0; t < queryBuffer.Count; t++)
                 {
-                    QueueDamage(queryBuffer[t], area.Damage);
+                    ICombatTarget target = queryBuffer[t];
+                    if (target.Kind == CombatTargetKind.Structure && !area.HitsStructures)
+                    {
+                        continue;
+                    }
+                    QueueDamage(target, area.Damage);
                 }
                 area.Resolved = true;
                 areas.RemoveAt(i);
