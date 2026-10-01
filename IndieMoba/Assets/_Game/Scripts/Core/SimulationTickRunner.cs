@@ -65,7 +65,16 @@ namespace IndieMoba.Core
                 ISimulationSystem system = snapshot[i];
                 if (active.Contains(system))
                 {
-                    system.SimulateTick(dt, currentTick);
+                    try
+                    {
+                        system.SimulateTick(dt, currentTick);
+                    }
+                    catch (Exception exception)
+                    {
+                        UnityEngine.Object context = system as UnityEngine.Object;
+                        Debug.LogError($"SimulationTickRunner: {system.GetType().Name} ({(context != null ? context.name : "non-Unity system")}) threw at tick {currentTick}; continuing with remaining systems.", context);
+                        Debug.LogException(exception, context);
+                    }
                 }
             }
             currentTick++;

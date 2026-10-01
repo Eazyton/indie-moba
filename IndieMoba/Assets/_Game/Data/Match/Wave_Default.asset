@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave_Default
   m_EditorClassIdentifier: IndieMoba.Match::IndieMoba.Match.WaveConfig
   firstWaveDelay: 4
-  waveInterval: 30
+  waveInterval: 35
   spawnGap: 0.7
   composition: 0000000001000000000000000100000000000000
   lateralOffsets:

@@ -19,6 +19,7 @@ namespace IndieMoba.Match
         [SerializeField] private SimulationTickRunner runner;
         [SerializeField] private NexusObjective[] nexuses;
         [SerializeField] private WaveSpawner waveSpawner;
+        [SerializeField] private WaveSpawner[] waveSpawners;
         [SerializeField] private Team localTeam = Team.Blue;
         [SerializeField] private bool pauseSimulationOnEnd = true;
 
@@ -54,6 +55,16 @@ namespace IndieMoba.Match
             if (waveSpawner != null)
             {
                 waveSpawner.SetSpawningEnabled(false);
+            }
+            if (waveSpawners != null)
+            {
+                for (int i = 0; i < waveSpawners.Length; i++)
+                {
+                    if (waveSpawners[i] != null)
+                    {
+                        waveSpawners[i].SetSpawningEnabled(false);
+                    }
+                }
             }
             if (pauseSimulationOnEnd && runner != null)
             {

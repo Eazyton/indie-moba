@@ -318,3 +318,42 @@ The nexus is invulnerable while its tower stands. Destroying a nexus ends the ma
 ### Future work (not implemented)
 - Tower aggro switch: a tower should switch to an enemy hero who attacks an allied hero inside tower range.
 - Advanced minion aggro (reacting to hero aggression).
+
+## Phase 4B - 5v5 graybox map
+
+### Assemblies and assets
+- `IndieMoba.Map` (references Core, Combat, Match; nothing references it except Editor): `MapLayoutData`, map types, slot/spawn/zone markers, `MapCollisionShape`, `MapGenerationStamp`, `MapCameraSettings`, `MapDebugGizmos`.
+- `Data/Map/Map5v5Layout.asset`: authoring data for the first generation.
+- `Prefabs/Map/Map5v5_Gameplay.prefab`: collision, lanes, structure slots, spawns, zones, camera bounds.
+- `Prefabs/Map/Map5v5_Visual.prefab`: graybox tilemaps, props, zone visuals, lights. It is derived from the gameplay prefab.
+- `Scenes/Match/Match5v5.unity`: separate scene. `GameplayPrototype.unity` (Phase 3) is unchanged.
+
+### Layout (prototype values)
+128x128 u playable, 8 u apron, 32 px = 1 u. Blue is bottom-left, Red top-right. Mid and the river run diagonally (river axis x + y = 128). Top = Clash lane (corrupted), Bottom = Farm lane (living). Side lanes 7 u wide, Mid 8 u. Nexus Blue (15, 15), Red (113, 113); fountains (7, 7) and (121, 121). 18 towers + 2 nexuses. River 10 u wide with two bridges and two fords; Heart Plaza r8 at (64, 64) with two pillars; pits at (38, 90) and (90, 38) with rim arcs and four openings. Four jungle clearings per quadrant, 24 brush zones (data and visuals only, no concealment).
+
+### Source of truth
+- First generation: `MapLayoutData` -> `Map5v5_Gameplay` prefab.
+- After that, the gameplay prefab is the hand-authored source of truth. Edit it directly.
+- Menu 1 never overwrites an existing layout asset. Only `Danger/Reset Layout To Defaults` resets it (two confirmations).
+- Menu 2 regenerates the gameplay prefab and asks for two confirmations if it exists.
+- Menu 3 rebuilds the visual prefab from the gameplay prefab (one confirmation if it exists).
+- Menu 4 never touches gameplay geometry. It finds or creates scene objects and keeps existing ones; wave offsets come from the layout only when a spawner is first created.
+
+### Menus (`IndieMoba/Map 5v5/`)
+Run `IndieMoba/Build Prototype` once first (shared prefabs and configs), then 1 -> 2 -> 3 -> 4. Later: edit the prefab, re-run 3 for visuals, 4 to rewire.
+
+### Collision
+The `Collision` object holds a static composite on the Obstacle layer: a `Bounds` box (Merge) minus walkable carves (Difference) plus blockers (Merge). Default mode is Filled Polygons because `CharacterMotor` depenetrates using overlaps before its circle-cast slide, and edge-only outlines have no interior. Outlines can be selected with `Collision Mode/Outlines` for comparison; the shapes are unchanged.
+
+### Structures
+Inner towers require the Outer tower, Base towers require the Inner tower (`RequirementMode.AllDestroyed`). Each nexus uses `RequirementMode.AnyDestroyed` with its three Base towers: it becomes vulnerable once any one dies.
+
+### Waves
+One `WaveSpawner` per lane, all listed in `MatchController.waveSpawners` and stopped at match end. `WaveSpawner.waveSpawnOffset` delays the first wave and, since the interval is shared, every wave of that lane. Mid uses +7.8 s, so Mid reaches its meeting point (~24.3 s natural) about 5 s before the side lanes (~37.1 s). Prototype value; tune via spawn positions, geometry, speed or offset.
+`MinionController` computes the lateral formation and separation direction from the current lane segment, so bent lanes keep their spacing.
+
+### Camera and respawn
+Orthographic size 9.375, bounds (-6, -6, 140, 140), no PixelPerfectCamera in this scene. No rotation for Red; red-side orientation is a future UX test. The Blue hero spawns and debug-revives at the Blue fountain (7, 7): development only, not the final respawn system.
+
+### Out of scope
+Jungle monsters, buffs, objective monsters, concealment, fog of war, final art, bots, multiplayer, economy, shop, XP/leveling.

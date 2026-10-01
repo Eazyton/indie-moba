@@ -10,6 +10,7 @@
         "IndieMoba.Minions",
         "IndieMoba.Structures",
         "IndieMoba.Match",
+        "IndieMoba.Map",
         "IndieMoba.Presentation",
         "Unity.InputSystem",
         "Unity.RenderPipelines.Universal.Runtime",

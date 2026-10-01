@@ -27,6 +27,7 @@ namespace IndieMoba.Minions
         private CharacterMotorState state;
         private CharacterMotorState previousState;
         private List<Vector2> waypoints;
+        private List<Vector2> segmentNormals;
         private int waypointIndex;
         private Vector2 laneNormal;
         private float lateralOffset;
@@ -75,6 +76,7 @@ namespace IndieMoba.Minions
             motor = new CharacterMotor(config.MovementConfig);
             state = CharacterMotorState.Create(transform.position);
             waypoints = new List<Vector2>(ctx.Waypoints);
+            BuildSegmentNormals();
             if (waypoints.Count > 1)
             {
                 Vector2 firstSegment = waypoints[1] - waypoints[0];
@@ -175,6 +177,35 @@ namespace IndieMoba.Minions
             transform.position = new Vector3(state.Position.x, state.Position.y, transform.position.z);
         }
 
+        private void BuildSegmentNormals()
+        {
+            segmentNormals = new List<Vector2>(waypoints.Count);
+            for (int i = 0; i < waypoints.Count; i++)
+            {
+                int from = i > 0 ? i - 1 : 0;
+                int to = i > 0 ? i : 1;
+                Vector2 normal = laneNormal;
+                if (to < waypoints.Count)
+                {
+                    Vector2 direction = waypoints[to] - waypoints[from];
+                    if (direction.sqrMagnitude > 1e-8f)
+                    {
+                        normal = new Vector2(-direction.y, direction.x).normalized;
+                    }
+                }
+                segmentNormals.Add(normal);
+            }
+        }
+
+        private Vector2 CurrentLaneNormal()
+        {
+            if (segmentNormals == null || segmentNormals.Count == 0)
+            {
+                return laneNormal;
+            }
+            return segmentNormals[Mathf.Clamp(waypointIndex, 0, segmentNormals.Count - 1)];
+        }
+
         private bool IsWaypointReached(int index)
         {
             Vector2 point = GetWaypointPoint(index);
@@ -198,7 +229,7 @@ namespace IndieMoba.Minions
             Vector2 point = waypoints[index];
             if (index < waypoints.Count - 1)
             {
-                point += laneNormal * lateralOffset;
+                point += segmentNormals[index] * lateralOffset;
             }
             return point;
         }
@@ -228,7 +259,7 @@ namespace IndieMoba.Minions
                 }
                 if (Mathf.Abs(Vector2.Dot(tangent, desired.normalized)) < 0.05f)
                 {
-                    if (Vector2.Dot(tangent, laneNormal) < 0f)
+                    if (Vector2.Dot(tangent, CurrentLaneNormal()) < 0f)
                     {
                         tangent = -tangent;
                     }
@@ -259,7 +290,7 @@ namespace IndieMoba.Minions
                 if (d < 1e-4f)
                 {
                     d = 1e-4f;
-                    away = laneNormal * (spawnIndex < other.SpawnIndex ? d : -d);
+                    away = CurrentLaneNormal() * (spawnIndex < other.SpawnIndex ? d : -d);
                 }
                 if (d >= config.SeparationRadius)
                 {

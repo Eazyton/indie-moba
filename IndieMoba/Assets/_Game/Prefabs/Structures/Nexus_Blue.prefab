@@ -377,6 +377,7 @@ MonoBehaviour:
   health: {fileID: 4206349770187612810}
   target: {fileID: 4917385484194947967}
   requiredStructures: []
+  requirementMode: 0
   allowedDamageSlots: 00000000
   blockingCollider: {fileID: 3973234936354665161}
   protectionEnabled: 1

@@ -36,6 +36,7 @@ namespace IndieMoba.Match
         [SerializeField] private TeamSpawn[] teams;
         [SerializeField] private Transform minionParent;
         [SerializeField] private bool spawningEnabled = true;
+        [Min(0f)] [SerializeField] private float waveSpawnOffset;
 
         private readonly List<PendingSpawn> pendingSpawns = new List<PendingSpawn>();
         private IMinionFactory factory;
@@ -43,12 +44,15 @@ namespace IndieMoba.Match
         private int nextWaveTick = -1;
         private int waveNumber;
         private int nextSpawnIndex;
+        private bool missingDependencyLogged;
 
         public event Action<int> WaveStarted;
 
         public int WaveNumber => waveNumber;
         public bool SpawningEnabled => spawningEnabled;
         public MinionRegistry Registry => registry;
+        public LanePath Lane => lane;
+        public float WaveSpawnOffset => waveSpawnOffset;
         public int SimulationOrder => Core.SimulationOrder.Spawning;
 
         public float SecondsUntilNextWave
@@ -79,10 +83,19 @@ namespace IndieMoba.Match
             {
                 return;
             }
+            if (config == null || runner == null)
+            {
+                if (!missingDependencyLogged)
+                {
+                    missingDependencyLogged = true;
+                    Debug.LogError($"{name}: WaveSpawner disabled, missing {(config == null ? "WaveConfig" : "SimulationTickRunner")} reference.", this);
+                }
+                return;
+            }
             elapsedTicks++;
             if (nextWaveTick < 0)
             {
-                nextWaveTick = Mathf.RoundToInt(config.FirstWaveDelay * runner.TickRate);
+                nextWaveTick = Mathf.RoundToInt((config.FirstWaveDelay + waveSpawnOffset) * runner.TickRate);
             }
             if (elapsedTicks >= nextWaveTick && (config.MaxWaves == 0 || waveNumber < config.MaxWaves))
             {

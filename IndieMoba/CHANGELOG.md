@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0] - 2026-10-01 - Phase 4B: 5v5 graybox map
+
+### Added
+- `IndieMoba.Map` assembly: `MapLayoutData`, map markers, collision shapes, camera settings, debug gizmos.
+- `IndieMoba/Map 5v5/` menus: non-destructive layout asset creation, guarded geometry generation, graybox visuals, non-destructive scene wiring, collision mode switch, guarded layout reset.
+- `Map5v5_Gameplay` and `Map5v5_Visual` prefabs and the `Scenes/Match/Match5v5.unity` scene (generated in the Editor).
+- `Structure.RequirementMode` (`AllDestroyed` default, `AnyDestroyed` for the 5v5 nexus).
+- `WaveSpawner.waveSpawnOffset` (applies to every wave), `MatchController.waveSpawners`, per-lane wave rows and a scrollable structure list in `LaneDebugOverlay`.
+
+### Changed
+- `MinionController` lateral offset and separation use the current lane segment direction.
+
 ## [0.3.1] - 2026-09-30
 
 ### Added

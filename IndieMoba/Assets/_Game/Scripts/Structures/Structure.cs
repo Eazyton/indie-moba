@@ -5,6 +5,12 @@ using IndieMoba.Core;
 
 namespace IndieMoba.Structures
 {
+    public enum RequirementMode
+    {
+        AllDestroyed = 0,
+        AnyDestroyed = 1
+    }
+
     [DisallowMultipleComponent]
     public sealed class Structure : MonoBehaviour, IDamageFilter
     {
@@ -12,6 +18,7 @@ namespace IndieMoba.Structures
         [SerializeField] private Health health;
         [SerializeField] private CombatTarget target;
         [SerializeField] private Structure[] requiredStructures;
+        [SerializeField] private RequirementMode requirementMode = RequirementMode.AllDestroyed;
         [SerializeField] private AbilitySlot[] allowedDamageSlots = { AbilitySlot.BasicAttack };
         [SerializeField] private Collider2D blockingCollider;
         [SerializeField] private bool protectionEnabled = true;
@@ -33,6 +40,24 @@ namespace IndieMoba.Structures
                 if (requiredStructures == null)
                 {
                     return false;
+                }
+                if (requirementMode == RequirementMode.AnyDestroyed)
+                {
+                    bool anyRequired = false;
+                    for (int i = 0; i < requiredStructures.Length; i++)
+                    {
+                        Structure required = requiredStructures[i];
+                        if (required == null)
+                        {
+                            continue;
+                        }
+                        anyRequired = true;
+                        if (required.IsDestroyed)
+                        {
+                            return false;
+                        }
+                    }
+                    return anyRequired;
                 }
                 for (int i = 0; i < requiredStructures.Length; i++)
                 {

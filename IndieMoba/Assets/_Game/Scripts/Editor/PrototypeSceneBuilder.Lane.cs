@@ -169,7 +169,7 @@ namespace IndieMoba.EditorTools
             BuildConfigAsset<WaveConfig>(WaveConfigPath, w =>
             {
                 w.FindProperty("firstWaveDelay").floatValue = 4f;
-                w.FindProperty("waveInterval").floatValue = 30f;
+                w.FindProperty("waveInterval").floatValue = 35f;
                 w.FindProperty("spawnGap").floatValue = 0.7f;
                 var composition = w.FindProperty("composition");
                 MinionAttackType[] order = { MinionAttackType.Melee, MinionAttackType.Ranged, MinionAttackType.Melee, MinionAttackType.Ranged, MinionAttackType.Melee };

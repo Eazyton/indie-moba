@@ -1,0 +1,1867 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5c0036ac81d4bb409b6d492d33fb449, type: 3}
+  m_Name: Map5v5Layout
+  m_EditorClassIdentifier: IndieMoba.Map::IndieMoba.Map.MapLayoutData
+  scale: 1
+  playableSize: 128
+  apronMargin: 8
+  borderThickness: 3
+  cameraBounds:
+    serializedVersion: 2
+    x: -6
+    y: -6
+    width: 140
+    height: 140
+  orthographicSize: 9.375
+  collisionMode: 0
+  circleSegments: 16
+  blueFountain: {x: 7, y: 7}
+  redFountain: {x: 121, y: 121}
+  lanes:
+  - lane: 1
+    waypoints:
+    - {x: 13, y: 21}
+    - {x: 10, y: 32}
+    - {x: 10, y: 56}
+    - {x: 10, y: 86}
+    - {x: 10, y: 108}
+    - {x: 13, y: 115}
+    - {x: 20, y: 118}
+    - {x: 42, y: 118}
+    - {x: 72, y: 118}
+    - {x: 96, y: 118}
+    - {x: 107, y: 115}
+    width: 7
+    blueSpawn: {x: 13, y: 21}
+    redSpawn: {x: 107, y: 115}
+    waveSpawnOffset: 0
+  - lane: 0
+    waypoints:
+    - {x: 20, y: 20}
+    - {x: 28, y: 28}
+    - {x: 36, y: 36}
+    - {x: 48, y: 48}
+    - {x: 64, y: 64}
+    - {x: 80, y: 80}
+    - {x: 92, y: 92}
+    - {x: 100, y: 100}
+    - {x: 108, y: 108}
+    width: 8
+    blueSpawn: {x: 20, y: 20}
+    redSpawn: {x: 108, y: 108}
+    waveSpawnOffset: 7.8
+  - lane: 2
+    waypoints:
+    - {x: 21, y: 13}
+    - {x: 32, y: 10}
+    - {x: 56, y: 10}
+    - {x: 86, y: 10}
+    - {x: 108, y: 10}
+    - {x: 115, y: 13}
+    - {x: 118, y: 20}
+    - {x: 118, y: 42}
+    - {x: 118, y: 72}
+    - {x: 118, y: 96}
+    - {x: 115, y: 107}
+    width: 7
+    blueSpawn: {x: 21, y: 13}
+    redSpawn: {x: 115, y: 107}
+    waveSpawnOffset: 0
+  structures:
+  - id: Tower_Blue_Top_Outer
+    team: 1
+    lane: 1
+    tier: 0
+    position: {x: 10, y: 86}
+  - id: Tower_Blue_Top_Inner
+    team: 1
+    lane: 1
+    tier: 1
+    position: {x: 10, y: 56}
+  - id: Tower_Blue_Top_Base
+    team: 1
+    lane: 1
+    tier: 2
+    position: {x: 10, y: 28}
+  - id: Tower_Red_Top_Outer
+    team: 2
+    lane: 1
+    tier: 0
+    position: {x: 42, y: 118}
+  - id: Tower_Red_Top_Inner
+    team: 2
+    lane: 1
+    tier: 1
+    position: {x: 72, y: 118}
+  - id: Tower_Red_Top_Base
+    team: 2
+    lane: 1
+    tier: 2
+    position: {x: 100, y: 118}
+  - id: Tower_Blue_Mid_Outer
+    team: 1
+    lane: 0
+    tier: 0
+    position: {x: 48, y: 48}
+  - id: Tower_Blue_Mid_Inner
+    team: 1
+    lane: 0
+    tier: 1
+    position: {x: 36, y: 36}
+  - id: Tower_Blue_Mid_Base
+    team: 1
+    lane: 0
+    tier: 2
+    position: {x: 24, y: 24}
+  - id: Tower_Red_Mid_Outer
+    team: 2
+    lane: 0
+    tier: 0
+    position: {x: 80, y: 80}
+  - id: Tower_Red_Mid_Inner
+    team: 2
+    lane: 0
+    tier: 1
+    position: {x: 92, y: 92}
+  - id: Tower_Red_Mid_Base
+    team: 2
+    lane: 0
+    tier: 2
+    position: {x: 104, y: 104}
+  - id: Tower_Blue_Bottom_Outer
+    team: 1
+    lane: 2
+    tier: 0
+    position: {x: 86, y: 10}
+  - id: Tower_Blue_Bottom_Inner
+    team: 1
+    lane: 2
+    tier: 1
+    position: {x: 56, y: 10}
+  - id: Tower_Blue_Bottom_Base
+    team: 1
+    lane: 2
+    tier: 2
+    position: {x: 28, y: 10}
+  - id: Tower_Red_Bottom_Outer
+    team: 2
+    lane: 2
+    tier: 0
+    position: {x: 118, y: 42}
+  - id: Tower_Red_Bottom_Inner
+    team: 2
+    lane: 2
+    tier: 1
+    position: {x: 118, y: 72}
+  - id: Tower_Red_Bottom_Base
+    team: 2
+    lane: 2
+    tier: 2
+    position: {x: 118, y: 100}
+  - id: Nexus_Blue
+    team: 1
+    lane: 0
+    tier: 3
+    position: {x: 15, y: 15}
+  - id: Nexus_Red
+    team: 2
+    lane: 0
+    tier: 3
+    position: {x: 113, y: 113}
+  walkable:
+  - id: Base_Blue
+    kind: 2
+    region: 1
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 3, y: 3}
+    - {x: 30, y: 3}
+    - {x: 30, y: 20}
+    - {x: 20, y: 30}
+    - {x: 3, y: 30}
+  - id: Base_Red
+    kind: 2
+    region: 1
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 125, y: 125}
+    - {x: 125, y: 98}
+    - {x: 108, y: 98}
+    - {x: 98, y: 108}
+    - {x: 98, y: 125}
+  - id: Lane_Top_1
+    kind: 0
+    region: 3
+    a: {x: 13, y: 21}
+    b: {x: 10, y: 32}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_2
+    kind: 0
+    region: 3
+    a: {x: 10, y: 32}
+    b: {x: 10, y: 56}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_3
+    kind: 0
+    region: 3
+    a: {x: 10, y: 56}
+    b: {x: 10, y: 86}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_4
+    kind: 0
+    region: 3
+    a: {x: 10, y: 86}
+    b: {x: 10, y: 108}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_5
+    kind: 0
+    region: 3
+    a: {x: 10, y: 108}
+    b: {x: 13, y: 115}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_6
+    kind: 0
+    region: 3
+    a: {x: 13, y: 115}
+    b: {x: 20, y: 118}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_7
+    kind: 0
+    region: 3
+    a: {x: 20, y: 118}
+    b: {x: 42, y: 118}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_8
+    kind: 0
+    region: 3
+    a: {x: 42, y: 118}
+    b: {x: 72, y: 118}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_9
+    kind: 0
+    region: 3
+    a: {x: 72, y: 118}
+    b: {x: 96, y: 118}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Top_10
+    kind: 0
+    region: 3
+    a: {x: 96, y: 118}
+    b: {x: 107, y: 115}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Mid_1
+    kind: 0
+    region: 2
+    a: {x: 20, y: 20}
+    b: {x: 28, y: 28}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_2
+    kind: 0
+    region: 2
+    a: {x: 28, y: 28}
+    b: {x: 36, y: 36}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_3
+    kind: 0
+    region: 2
+    a: {x: 36, y: 36}
+    b: {x: 48, y: 48}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_4
+    kind: 0
+    region: 2
+    a: {x: 48, y: 48}
+    b: {x: 64, y: 64}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_5
+    kind: 0
+    region: 2
+    a: {x: 64, y: 64}
+    b: {x: 80, y: 80}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_6
+    kind: 0
+    region: 2
+    a: {x: 80, y: 80}
+    b: {x: 92, y: 92}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_7
+    kind: 0
+    region: 2
+    a: {x: 92, y: 92}
+    b: {x: 100, y: 100}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Mid_8
+    kind: 0
+    region: 2
+    a: {x: 100, y: 100}
+    b: {x: 108, y: 108}
+    width: 8
+    radius: 4
+    points: []
+  - id: Lane_Bottom_1
+    kind: 0
+    region: 4
+    a: {x: 21, y: 13}
+    b: {x: 32, y: 10}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_2
+    kind: 0
+    region: 4
+    a: {x: 32, y: 10}
+    b: {x: 56, y: 10}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_3
+    kind: 0
+    region: 4
+    a: {x: 56, y: 10}
+    b: {x: 86, y: 10}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_4
+    kind: 0
+    region: 4
+    a: {x: 86, y: 10}
+    b: {x: 108, y: 10}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_5
+    kind: 0
+    region: 4
+    a: {x: 108, y: 10}
+    b: {x: 115, y: 13}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_6
+    kind: 0
+    region: 4
+    a: {x: 115, y: 13}
+    b: {x: 118, y: 20}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_7
+    kind: 0
+    region: 4
+    a: {x: 118, y: 20}
+    b: {x: 118, y: 42}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_8
+    kind: 0
+    region: 4
+    a: {x: 118, y: 42}
+    b: {x: 118, y: 72}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_9
+    kind: 0
+    region: 4
+    a: {x: 118, y: 72}
+    b: {x: 118, y: 96}
+    width: 7
+    radius: 4
+    points: []
+  - id: Lane_Bottom_10
+    kind: 0
+    region: 4
+    a: {x: 118, y: 96}
+    b: {x: 115, y: 107}
+    width: 7
+    radius: 4
+    points: []
+  - id: River_Main
+    kind: 0
+    region: 5
+    a: {x: 13, y: 115}
+    b: {x: 115, y: 13}
+    width: 10
+    radius: 4
+    points: []
+  - id: River_PitUpper_Widen
+    kind: 1
+    region: 5
+    a: {x: 38, y: 90}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 12
+    points: []
+  - id: River_PitLower_Widen
+    kind: 1
+    region: 5
+    a: {x: 90, y: 38}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 12
+    points: []
+  - id: Pit_Upper_Basin
+    kind: 1
+    region: 6
+    a: {x: 38, y: 90}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 6
+    points: []
+  - id: Pit_Lower_Basin
+    kind: 1
+    region: 6
+    a: {x: 90, y: 38}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 6
+    points: []
+  - id: HeartPlaza
+    kind: 1
+    region: 7
+    a: {x: 64, y: 64}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 8
+    points: []
+  - id: Bridge_Upper
+    kind: 0
+    region: 5
+    a: {x: 52, y: 72}
+    b: {x: 56, y: 76}
+    width: 5
+    radius: 4
+    points: []
+  - id: Bridge_Lower
+    kind: 0
+    region: 5
+    a: {x: 72, y: 52}
+    b: {x: 76, y: 56}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_BlueUpper_Buff
+    kind: 1
+    region: 8
+    a: {x: 26, y: 58}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 5
+    points: []
+  - id: Clearing_BlueUpper_SmallA
+    kind: 1
+    region: 8
+    a: {x: 24, y: 82}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_BlueUpper_SmallB
+    kind: 1
+    region: 8
+    a: {x: 42, y: 70}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_BlueUpper_Optional
+    kind: 1
+    region: 8
+    a: {x: 30, y: 42}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 3.5
+    points: []
+  - id: Corridor_BlueUpper_0
+    kind: 0
+    region: 0
+    a: {x: 13, y: 38}
+    b: {x: 30, y: 42}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_1
+    kind: 0
+    region: 0
+    a: {x: 28, y: 34}
+    b: {x: 30, y: 42}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_2
+    kind: 0
+    region: 0
+    a: {x: 30, y: 42}
+    b: {x: 26, y: 58}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_3
+    kind: 0
+    region: 0
+    a: {x: 26, y: 58}
+    b: {x: 13, y: 66}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_4
+    kind: 0
+    region: 0
+    a: {x: 26, y: 58}
+    b: {x: 42, y: 70}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_5
+    kind: 0
+    region: 0
+    a: {x: 42, y: 70}
+    b: {x: 52, y: 72}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_6
+    kind: 0
+    region: 0
+    a: {x: 26, y: 58}
+    b: {x: 44, y: 48}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_7
+    kind: 0
+    region: 0
+    a: {x: 24, y: 82}
+    b: {x: 13, y: 94}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_8
+    kind: 0
+    region: 0
+    a: {x: 24, y: 82}
+    b: {x: 26, y: 58}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_9
+    kind: 0
+    region: 0
+    a: {x: 24, y: 82}
+    b: {x: 31, y: 86}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_10
+    kind: 0
+    region: 0
+    a: {x: 42, y: 70}
+    b: {x: 41, y: 80}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_11
+    kind: 0
+    region: 0
+    a: {x: 24, y: 82}
+    b: {x: 21, y: 100}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_BlueUpper_12
+    kind: 0
+    region: 0
+    a: {x: 50, y: 58}
+    b: {x: 46, y: 52}
+    width: 3.5
+    radius: 4
+    points: []
+  - id: Clearing_BlueLower_Buff
+    kind: 1
+    region: 8
+    a: {x: 58, y: 26}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 5
+    points: []
+  - id: Clearing_BlueLower_SmallA
+    kind: 1
+    region: 8
+    a: {x: 82, y: 24}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_BlueLower_SmallB
+    kind: 1
+    region: 8
+    a: {x: 70, y: 42}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_BlueLower_Optional
+    kind: 1
+    region: 8
+    a: {x: 42, y: 30}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 3.5
+    points: []
+  - id: Corridor_BlueLower_0
+    kind: 0
+    region: 0
+    a: {x: 38, y: 13}
+    b: {x: 42, y: 30}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_1
+    kind: 0
+    region: 0
+    a: {x: 34, y: 28}
+    b: {x: 42, y: 30}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_2
+    kind: 0
+    region: 0
+    a: {x: 42, y: 30}
+    b: {x: 58, y: 26}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_3
+    kind: 0
+    region: 0
+    a: {x: 58, y: 26}
+    b: {x: 66, y: 13}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_4
+    kind: 0
+    region: 0
+    a: {x: 58, y: 26}
+    b: {x: 70, y: 42}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_5
+    kind: 0
+    region: 0
+    a: {x: 70, y: 42}
+    b: {x: 72, y: 52}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_6
+    kind: 0
+    region: 0
+    a: {x: 58, y: 26}
+    b: {x: 48, y: 44}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_7
+    kind: 0
+    region: 0
+    a: {x: 82, y: 24}
+    b: {x: 94, y: 13}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_8
+    kind: 0
+    region: 0
+    a: {x: 82, y: 24}
+    b: {x: 58, y: 26}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_9
+    kind: 0
+    region: 0
+    a: {x: 82, y: 24}
+    b: {x: 86, y: 31}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_10
+    kind: 0
+    region: 0
+    a: {x: 70, y: 42}
+    b: {x: 80, y: 41}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_11
+    kind: 0
+    region: 0
+    a: {x: 82, y: 24}
+    b: {x: 100, y: 21}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_BlueLower_12
+    kind: 0
+    region: 0
+    a: {x: 58, y: 50}
+    b: {x: 52, y: 46}
+    width: 3.5
+    radius: 4
+    points: []
+  - id: Clearing_RedUpper_Buff
+    kind: 1
+    region: 8
+    a: {x: 70, y: 102}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 5
+    points: []
+  - id: Clearing_RedUpper_SmallA
+    kind: 1
+    region: 8
+    a: {x: 46, y: 104}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_RedUpper_SmallB
+    kind: 1
+    region: 8
+    a: {x: 58, y: 86}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_RedUpper_Optional
+    kind: 1
+    region: 8
+    a: {x: 86, y: 98}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 3.5
+    points: []
+  - id: Corridor_RedUpper_0
+    kind: 0
+    region: 0
+    a: {x: 90, y: 115}
+    b: {x: 86, y: 98}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_1
+    kind: 0
+    region: 0
+    a: {x: 94, y: 100}
+    b: {x: 86, y: 98}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_2
+    kind: 0
+    region: 0
+    a: {x: 86, y: 98}
+    b: {x: 70, y: 102}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_3
+    kind: 0
+    region: 0
+    a: {x: 70, y: 102}
+    b: {x: 62, y: 115}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_4
+    kind: 0
+    region: 0
+    a: {x: 70, y: 102}
+    b: {x: 58, y: 86}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_5
+    kind: 0
+    region: 0
+    a: {x: 58, y: 86}
+    b: {x: 56, y: 76}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_6
+    kind: 0
+    region: 0
+    a: {x: 70, y: 102}
+    b: {x: 80, y: 84}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_7
+    kind: 0
+    region: 0
+    a: {x: 46, y: 104}
+    b: {x: 34, y: 115}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_8
+    kind: 0
+    region: 0
+    a: {x: 46, y: 104}
+    b: {x: 70, y: 102}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_9
+    kind: 0
+    region: 0
+    a: {x: 46, y: 104}
+    b: {x: 42, y: 97}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_10
+    kind: 0
+    region: 0
+    a: {x: 58, y: 86}
+    b: {x: 48, y: 87}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_11
+    kind: 0
+    region: 0
+    a: {x: 46, y: 104}
+    b: {x: 28, y: 107}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_RedUpper_12
+    kind: 0
+    region: 0
+    a: {x: 70, y: 78}
+    b: {x: 76, y: 82}
+    width: 3.5
+    radius: 4
+    points: []
+  - id: Clearing_RedLower_Buff
+    kind: 1
+    region: 8
+    a: {x: 102, y: 70}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 5
+    points: []
+  - id: Clearing_RedLower_SmallA
+    kind: 1
+    region: 8
+    a: {x: 104, y: 46}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_RedLower_SmallB
+    kind: 1
+    region: 8
+    a: {x: 86, y: 58}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points: []
+  - id: Clearing_RedLower_Optional
+    kind: 1
+    region: 8
+    a: {x: 98, y: 86}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 3.5
+    points: []
+  - id: Corridor_RedLower_0
+    kind: 0
+    region: 0
+    a: {x: 115, y: 90}
+    b: {x: 98, y: 86}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_1
+    kind: 0
+    region: 0
+    a: {x: 100, y: 94}
+    b: {x: 98, y: 86}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_2
+    kind: 0
+    region: 0
+    a: {x: 98, y: 86}
+    b: {x: 102, y: 70}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_3
+    kind: 0
+    region: 0
+    a: {x: 102, y: 70}
+    b: {x: 115, y: 62}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_4
+    kind: 0
+    region: 0
+    a: {x: 102, y: 70}
+    b: {x: 86, y: 58}
+    width: 6
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_5
+    kind: 0
+    region: 0
+    a: {x: 86, y: 58}
+    b: {x: 76, y: 56}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_6
+    kind: 0
+    region: 0
+    a: {x: 102, y: 70}
+    b: {x: 84, y: 80}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_7
+    kind: 0
+    region: 0
+    a: {x: 104, y: 46}
+    b: {x: 115, y: 34}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_8
+    kind: 0
+    region: 0
+    a: {x: 104, y: 46}
+    b: {x: 102, y: 70}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_9
+    kind: 0
+    region: 0
+    a: {x: 104, y: 46}
+    b: {x: 97, y: 42}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_10
+    kind: 0
+    region: 0
+    a: {x: 86, y: 58}
+    b: {x: 87, y: 48}
+    width: 5
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_11
+    kind: 0
+    region: 0
+    a: {x: 104, y: 46}
+    b: {x: 107, y: 28}
+    width: 4
+    radius: 4
+    points: []
+  - id: Corridor_RedLower_12
+    kind: 0
+    region: 0
+    a: {x: 78, y: 70}
+    b: {x: 82, y: 76}
+    width: 3.5
+    radius: 4
+    points: []
+  blockers:
+  - id: Pit_Upper_Rim_0
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 45.30409, y: 86.73652}
+    - {x: 45.688164, y: 87.78818}
+    - {x: 45.921658, y: 88.88315}
+    - {x: 46, y: 90}
+    - {x: 45.921658, y: 91.11685}
+    - {x: 45.688164, y: 92.21182}
+    - {x: 45.30409, y: 93.26348}
+    - {x: 43.478065, y: 92.44761}
+    - {x: 43.76612, y: 91.65887}
+    - {x: 43.941242, y: 90.83764}
+    - {x: 44, y: 90}
+    - {x: 43.941242, y: 89.16236}
+    - {x: 43.76612, y: 88.34113}
+    - {x: 43.478065, y: 87.55239}
+  - id: Pit_Upper_Rim_1
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 41.263477, y: 97.30409}
+    - {x: 40.211823, y: 97.68816}
+    - {x: 39.116848, y: 97.92165}
+    - {x: 38, y: 98}
+    - {x: 36.883152, y: 97.92165}
+    - {x: 35.788177, y: 97.68816}
+    - {x: 34.736523, y: 97.30409}
+    - {x: 35.55239, y: 95.478065}
+    - {x: 36.341133, y: 95.76612}
+    - {x: 37.162365, y: 95.941246}
+    - {x: 38, y: 96}
+    - {x: 38.837635, y: 95.941246}
+    - {x: 39.658867, y: 95.76612}
+    - {x: 40.44761, y: 95.478065}
+  - id: Pit_Upper_Rim_2
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 30.695911, y: 93.26348}
+    - {x: 30.311838, y: 92.21182}
+    - {x: 30.078342, y: 91.11685}
+    - {x: 30, y: 90}
+    - {x: 30.078342, y: 88.88315}
+    - {x: 30.311838, y: 87.78818}
+    - {x: 30.695911, y: 86.73652}
+    - {x: 32.521935, y: 87.55239}
+    - {x: 32.23388, y: 88.34113}
+    - {x: 32.058758, y: 89.16236}
+    - {x: 32, y: 90}
+    - {x: 32.058758, y: 90.83764}
+    - {x: 32.23388, y: 91.65887}
+    - {x: 32.521935, y: 92.44761}
+  - id: Pit_Upper_Rim_3
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 34.736523, y: 82.69591}
+    - {x: 35.788174, y: 82.31184}
+    - {x: 36.88315, y: 82.07835}
+    - {x: 38, y: 82}
+    - {x: 39.11685, y: 82.07835}
+    - {x: 40.211823, y: 82.31184}
+    - {x: 41.263477, y: 82.69591}
+    - {x: 40.44761, y: 84.521935}
+    - {x: 39.658867, y: 84.23388}
+    - {x: 38.83764, y: 84.05876}
+    - {x: 38, y: 84}
+    - {x: 37.16236, y: 84.05876}
+    - {x: 36.34113, y: 84.23388}
+    - {x: 35.55239, y: 84.521935}
+  - id: Pit_Lower_Rim_0
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 97.30409, y: 34.736523}
+    - {x: 97.68816, y: 35.788177}
+    - {x: 97.92165, y: 36.883152}
+    - {x: 98, y: 38}
+    - {x: 97.92165, y: 39.116848}
+    - {x: 97.68816, y: 40.211823}
+    - {x: 97.30409, y: 41.263477}
+    - {x: 95.478065, y: 40.44761}
+    - {x: 95.76612, y: 39.658867}
+    - {x: 95.941246, y: 38.837635}
+    - {x: 96, y: 38}
+    - {x: 95.941246, y: 37.162365}
+    - {x: 95.76612, y: 36.341133}
+    - {x: 95.478065, y: 35.55239}
+  - id: Pit_Lower_Rim_1
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 93.26348, y: 45.30409}
+    - {x: 92.21182, y: 45.688164}
+    - {x: 91.11685, y: 45.921658}
+    - {x: 90, y: 46}
+    - {x: 88.88315, y: 45.921658}
+    - {x: 87.78818, y: 45.688164}
+    - {x: 86.73652, y: 45.30409}
+    - {x: 87.55239, y: 43.478065}
+    - {x: 88.34113, y: 43.76612}
+    - {x: 89.16236, y: 43.941242}
+    - {x: 90, y: 44}
+    - {x: 90.83764, y: 43.941242}
+    - {x: 91.65887, y: 43.76612}
+    - {x: 92.44761, y: 43.478065}
+  - id: Pit_Lower_Rim_2
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 82.69591, y: 41.263477}
+    - {x: 82.31184, y: 40.211823}
+    - {x: 82.07835, y: 39.116848}
+    - {x: 82, y: 38}
+    - {x: 82.07835, y: 36.883152}
+    - {x: 82.31184, y: 35.788177}
+    - {x: 82.69591, y: 34.736523}
+    - {x: 84.521935, y: 35.55239}
+    - {x: 84.23388, y: 36.341133}
+    - {x: 84.058754, y: 37.162365}
+    - {x: 84, y: 38}
+    - {x: 84.058754, y: 38.83764}
+    - {x: 84.23388, y: 39.658867}
+    - {x: 84.521935, y: 40.44761}
+  - id: Pit_Lower_Rim_3
+    kind: 2
+    region: 6
+    a: {x: 0, y: 0}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 4
+    points:
+    - {x: 86.73653, y: 30.695911}
+    - {x: 87.78818, y: 30.311838}
+    - {x: 88.88315, y: 30.078342}
+    - {x: 90, y: 30}
+    - {x: 91.11685, y: 30.078342}
+    - {x: 92.21182, y: 30.311838}
+    - {x: 93.26348, y: 30.695911}
+    - {x: 92.44761, y: 32.521935}
+    - {x: 91.65887, y: 32.23388}
+    - {x: 90.83764, y: 32.058758}
+    - {x: 90, y: 32}
+    - {x: 89.16236, y: 32.058758}
+    - {x: 88.34113, y: 32.23388}
+    - {x: 87.55239, y: 32.521935}
+  - id: Plaza_Pillar_A
+    kind: 1
+    region: 7
+    a: {x: 58, y: 70}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 1.5
+    points: []
+  - id: Plaza_Pillar_B
+    kind: 1
+    region: 7
+    a: {x: 70, y: 58}
+    b: {x: 0, y: 0}
+    width: 5
+    radius: 1.5
+    points: []
+  zones:
+  - id: Base_Blue
+    type: 0
+    team: 1
+    shape:
+      id: Base_Blue
+      kind: 2
+      region: 1
+      a: {x: 0, y: 0}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points:
+      - {x: 3, y: 3}
+      - {x: 30, y: 3}
+      - {x: 30, y: 20}
+      - {x: 20, y: 30}
+      - {x: 3, y: 30}
+  - id: Base_Red
+    type: 0
+    team: 2
+    shape:
+      id: Base_Red
+      kind: 2
+      region: 1
+      a: {x: 0, y: 0}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points:
+      - {x: 125, y: 125}
+      - {x: 125, y: 98}
+      - {x: 108, y: 98}
+      - {x: 98, y: 108}
+      - {x: 98, y: 125}
+  - id: Fountain_Blue
+    type: 1
+    team: 1
+    shape:
+      id: Fountain_Blue
+      kind: 1
+      region: 1
+      a: {x: 7, y: 7}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3
+      points: []
+  - id: Fountain_Red
+    type: 1
+    team: 2
+    shape:
+      id: Fountain_Red
+      kind: 1
+      region: 1
+      a: {x: 121, y: 121}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3
+      points: []
+  - id: River
+    type: 2
+    team: 0
+    shape:
+      id: River
+      kind: 0
+      region: 5
+      a: {x: 13, y: 115}
+      b: {x: 115, y: 13}
+      width: 10
+      radius: 4
+      points: []
+  - id: Crossing_TopFord
+    type: 3
+    team: 0
+    shape:
+      id: Crossing_TopFord
+      kind: 1
+      region: 5
+      a: {x: 13, y: 115}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Crossing_BridgeUpper
+    type: 3
+    team: 0
+    shape:
+      id: Crossing_BridgeUpper
+      kind: 1
+      region: 5
+      a: {x: 54, y: 74}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3
+      points: []
+  - id: Crossing_BridgeLower
+    type: 3
+    team: 0
+    shape:
+      id: Crossing_BridgeLower
+      kind: 1
+      region: 5
+      a: {x: 74, y: 54}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3
+      points: []
+  - id: Crossing_BottomFord
+    type: 3
+    team: 0
+    shape:
+      id: Crossing_BottomFord
+      kind: 1
+      region: 5
+      a: {x: 115, y: 13}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Pit_Upper
+    type: 4
+    team: 0
+    shape:
+      id: Pit_Upper
+      kind: 1
+      region: 6
+      a: {x: 38, y: 90}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 8
+      points: []
+  - id: Pit_Lower
+    type: 4
+    team: 0
+    shape:
+      id: Pit_Lower
+      kind: 1
+      region: 6
+      a: {x: 90, y: 38}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 8
+      points: []
+  - id: HeartPlaza
+    type: 5
+    team: 0
+    shape:
+      id: HeartPlaza
+      kind: 1
+      region: 7
+      a: {x: 64, y: 64}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 8
+      points: []
+  - id: Clearing_BlueUpper_Buff
+    type: 6
+    team: 1
+    shape:
+      id: Clearing_BlueUpper_Buff
+      kind: 1
+      region: 8
+      a: {x: 26, y: 58}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Clearing_BlueUpper_SmallA
+    type: 7
+    team: 1
+    shape:
+      id: Clearing_BlueUpper_SmallA
+      kind: 1
+      region: 8
+      a: {x: 24, y: 82}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_BlueUpper_SmallB
+    type: 7
+    team: 1
+    shape:
+      id: Clearing_BlueUpper_SmallB
+      kind: 1
+      region: 8
+      a: {x: 42, y: 70}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_BlueUpper_Optional
+    type: 8
+    team: 1
+    shape:
+      id: Clearing_BlueUpper_Optional
+      kind: 1
+      region: 8
+      a: {x: 30, y: 42}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3.5
+      points: []
+  - id: Brush_BlueUpper_0
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_0
+      kind: 1
+      region: 0
+      a: {x: 15, y: 65}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueUpper_1
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_1
+      kind: 1
+      region: 0
+      a: {x: 19, y: 104}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_BlueUpper_2
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_2
+      kind: 1
+      region: 0
+      a: {x: 30, y: 86}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueUpper_3
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_3
+      kind: 1
+      region: 0
+      a: {x: 34, y: 64}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_BlueUpper_4
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_4
+      kind: 1
+      region: 0
+      a: {x: 50, y: 58}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueUpper_5
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueUpper_5
+      kind: 1
+      region: 0
+      a: {x: 49, y: 72}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Clearing_BlueLower_Buff
+    type: 6
+    team: 1
+    shape:
+      id: Clearing_BlueLower_Buff
+      kind: 1
+      region: 8
+      a: {x: 58, y: 26}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Clearing_BlueLower_SmallA
+    type: 7
+    team: 1
+    shape:
+      id: Clearing_BlueLower_SmallA
+      kind: 1
+      region: 8
+      a: {x: 82, y: 24}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_BlueLower_SmallB
+    type: 7
+    team: 1
+    shape:
+      id: Clearing_BlueLower_SmallB
+      kind: 1
+      region: 8
+      a: {x: 70, y: 42}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_BlueLower_Optional
+    type: 8
+    team: 1
+    shape:
+      id: Clearing_BlueLower_Optional
+      kind: 1
+      region: 8
+      a: {x: 42, y: 30}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3.5
+      points: []
+  - id: Brush_BlueLower_0
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_0
+      kind: 1
+      region: 0
+      a: {x: 65, y: 15}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueLower_1
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_1
+      kind: 1
+      region: 0
+      a: {x: 104, y: 19}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_BlueLower_2
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_2
+      kind: 1
+      region: 0
+      a: {x: 86, y: 30}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueLower_3
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_3
+      kind: 1
+      region: 0
+      a: {x: 64, y: 34}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_BlueLower_4
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_4
+      kind: 1
+      region: 0
+      a: {x: 58, y: 50}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_BlueLower_5
+    type: 9
+    team: 0
+    shape:
+      id: Brush_BlueLower_5
+      kind: 1
+      region: 0
+      a: {x: 72, y: 49}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Clearing_RedUpper_Buff
+    type: 6
+    team: 2
+    shape:
+      id: Clearing_RedUpper_Buff
+      kind: 1
+      region: 8
+      a: {x: 70, y: 102}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Clearing_RedUpper_SmallA
+    type: 7
+    team: 2
+    shape:
+      id: Clearing_RedUpper_SmallA
+      kind: 1
+      region: 8
+      a: {x: 46, y: 104}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_RedUpper_SmallB
+    type: 7
+    team: 2
+    shape:
+      id: Clearing_RedUpper_SmallB
+      kind: 1
+      region: 8
+      a: {x: 58, y: 86}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_RedUpper_Optional
+    type: 8
+    team: 2
+    shape:
+      id: Clearing_RedUpper_Optional
+      kind: 1
+      region: 8
+      a: {x: 86, y: 98}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3.5
+      points: []
+  - id: Brush_RedUpper_0
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_0
+      kind: 1
+      region: 0
+      a: {x: 63, y: 113}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedUpper_1
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_1
+      kind: 1
+      region: 0
+      a: {x: 24, y: 109}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_RedUpper_2
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_2
+      kind: 1
+      region: 0
+      a: {x: 42, y: 98}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedUpper_3
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_3
+      kind: 1
+      region: 0
+      a: {x: 64, y: 94}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_RedUpper_4
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_4
+      kind: 1
+      region: 0
+      a: {x: 70, y: 78}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedUpper_5
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedUpper_5
+      kind: 1
+      region: 0
+      a: {x: 56, y: 79}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Clearing_RedLower_Buff
+    type: 6
+    team: 2
+    shape:
+      id: Clearing_RedLower_Buff
+      kind: 1
+      region: 8
+      a: {x: 102, y: 70}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 5
+      points: []
+  - id: Clearing_RedLower_SmallA
+    type: 7
+    team: 2
+    shape:
+      id: Clearing_RedLower_SmallA
+      kind: 1
+      region: 8
+      a: {x: 104, y: 46}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_RedLower_SmallB
+    type: 7
+    team: 2
+    shape:
+      id: Clearing_RedLower_SmallB
+      kind: 1
+      region: 8
+      a: {x: 86, y: 58}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 4
+      points: []
+  - id: Clearing_RedLower_Optional
+    type: 8
+    team: 2
+    shape:
+      id: Clearing_RedLower_Optional
+      kind: 1
+      region: 8
+      a: {x: 98, y: 86}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 3.5
+      points: []
+  - id: Brush_RedLower_0
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_0
+      kind: 1
+      region: 0
+      a: {x: 113, y: 63}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedLower_1
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_1
+      kind: 1
+      region: 0
+      a: {x: 109, y: 24}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_RedLower_2
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_2
+      kind: 1
+      region: 0
+      a: {x: 98, y: 42}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedLower_3
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_3
+      kind: 1
+      region: 0
+      a: {x: 94, y: 64}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []
+  - id: Brush_RedLower_4
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_4
+      kind: 1
+      region: 0
+      a: {x: 78, y: 70}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2.5
+      points: []
+  - id: Brush_RedLower_5
+    type: 9
+    team: 0
+    shape:
+      id: Brush_RedLower_5
+      kind: 1
+      region: 0
+      a: {x: 79, y: 56}
+      b: {x: 0, y: 0}
+      width: 5
+      radius: 2
+      points: []

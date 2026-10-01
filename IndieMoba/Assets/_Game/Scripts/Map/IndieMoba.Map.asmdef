@@ -1,0 +1,1 @@
+{"name":"IndieMoba.Map","rootNamespace":"IndieMoba.Map","references":["IndieMoba.Core","IndieMoba.Combat","IndieMoba.Match"],"autoReferenced":true}
