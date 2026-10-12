@@ -11,6 +11,7 @@
         "IndieMoba.Structures",
         "IndieMoba.Match",
         "IndieMoba.Map",
+        "IndieMoba.Jungle",
         "IndieMoba.Presentation",
         "Unity.InputSystem",
         "Unity.RenderPipelines.Universal.Runtime",

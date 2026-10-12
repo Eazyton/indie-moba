@@ -278,6 +278,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6923506817105190547, guid: 3d2314d8500bc254b818912cdc4093cc, type: 3}
   m_PrefabInstance: {fileID: 78538637}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &96304813
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96304815}
+  - component: {fileID: 96304814}
+  m_Layer: 0
+  m_Name: Camp_BlueUpper_Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &96304814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96304813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: bc484731b7822824e9d1cd706fbc0365, type: 2}
+  campId: Clearing_BlueUpper_Buff
+  members:
+  - {fileID: 1582886384}
+  - {fileID: 753531502}
+  - {fileID: 2077032194}
+  buffCarrier: {fileID: 1582886384}
+--- !u!4 &96304815
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96304813}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 26, y: 58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1582886383}
+  - {fileID: 753531501}
+  - {fileID: 2077032195}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117557053
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,6 +381,131 @@ Transform:
   - {fileID: 267462772}
   - {fileID: 450539613}
   - {fileID: 1683165069}
+  m_Father: {fileID: 515638898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &148503047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 148503049}
+  - component: {fileID: 148503048}
+  m_Layer: 0
+  m_Name: Camp_RedLower_SmallB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &148503048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148503047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: db29923e046b0714ba80c6e41c1754cc, type: 2}
+  campId: Clearing_RedLower_SmallB
+  members:
+  - {fileID: 1470521754}
+  - {fileID: 315607861}
+  - {fileID: 259441476}
+  buffCarrier: {fileID: 0}
+--- !u!4 &148503049
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148503047}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 86, y: 58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1470521753}
+  - {fileID: 315607860}
+  - {fileID: 259441477}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &208375368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208375370}
+  - component: {fileID: 208375369}
+  m_Layer: 0
+  m_Name: Jungle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &208375369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208375368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9329f1c35d60aaa408c384cd7f9c968f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleDirector
+  runner: {fileID: 59602359}
+  world: {fileID: 1289226369}
+  camps:
+  - {fileID: 96304814}
+  - {fileID: 318623053}
+  - {fileID: 1158058563}
+  - {fileID: 1962793045}
+  - {fileID: 450995929}
+  - {fileID: 1160922054}
+  - {fileID: 1090401928}
+  - {fileID: 701032272}
+  - {fileID: 1854288219}
+  - {fileID: 1915682026}
+  - {fileID: 1803570155}
+  - {fileID: 148503048}
+--- !u!4 &208375370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208375368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 96304815}
+  - {fileID: 318623054}
+  - {fileID: 1158058564}
+  - {fileID: 1962793046}
+  - {fileID: 450995930}
+  - {fileID: 1160922055}
+  - {fileID: 1090401929}
+  - {fileID: 701032273}
+  - {fileID: 1854288220}
+  - {fileID: 1915682027}
+  - {fileID: 1803570156}
+  - {fileID: 148503049}
   m_Father: {fileID: 515638898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &210513445
@@ -445,6 +624,95 @@ MonoBehaviour:
   m_EditorClassIdentifier: IndieMoba.Presentation::IndieMoba.Presentation.ProjectileViewSpawner
   world: {fileID: 1289226369}
   container: {fileID: 210513446}
+--- !u!1001 &259441475
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 148503049}
+    m_Modifications:
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 1342242101234129608, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_Name
+      value: JNG_CrystalMite_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010051553038166174, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3338495825489478491, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+--- !u!114 &259441476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1013838523943341696, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 259441475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &259441477 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 259441475}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &267462770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +826,323 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6923506817105190547, guid: 3d2314d8500bc254b818912cdc4093cc, type: 3}
   m_PrefabInstance: {fileID: 267462770}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &295624843
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1090401929}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!4 &295624844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 295624843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &295624845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 295624843}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1001 &309522358
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1160922055}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!4 &309522359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 309522358}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &309522360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 309522358}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1001 &315607859
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 148503049}
+    m_Modifications:
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 1342242101234129608, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_Name
+      value: JNG_CrystalMite_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010051553038166174, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3338495825489478491, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+--- !u!4 &315607860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 315607859}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &315607861 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1013838523943341696, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 315607859}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1 &318623052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318623054}
+  - component: {fileID: 318623053}
+  m_Layer: 0
+  m_Name: Camp_BlueUpper_SmallA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &318623053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318623052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: 1698c2b49b84f764e802ab8ee244e721, type: 2}
+  campId: Clearing_BlueUpper_SmallA
+  members:
+  - {fileID: 1078354948}
+  buffCarrier: {fileID: 0}
+--- !u!4 &318623054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318623052}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24, y: 82, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1078354949}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &323328977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,6 +1392,143 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa9fe91780c7da42a812e098b5efa51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: IndieMoba.Structures::IndieMoba.Structures.Structure
+--- !u!1 &450995928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450995930}
+  - component: {fileID: 450995929}
+  m_Layer: 0
+  m_Name: Camp_BlueLower_SmallA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &450995929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450995928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: 237493539dab84045bb9b0ff2e3aac2b, type: 2}
+  campId: Clearing_BlueLower_SmallA
+  members:
+  - {fileID: 1132865882}
+  buffCarrier: {fileID: 0}
+--- !u!4 &450995930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450995928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 82, y: 24, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1132865883}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &459909589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459909590}
+  - component: {fileID: 459909593}
+  - component: {fileID: 459909592}
+  - component: {fileID: 459909591}
+  m_Layer: 0
+  m_Name: JunglePresentation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459909590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459909589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 515638898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &459909591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459909589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e35e2374a379764e9356276606ff3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Presentation::IndieMoba.Presentation.JungleDebugOverlay
+  director: {fileID: 208375369}
+  playerEffects: {fileID: 1768500533}
+  playerCombat: {fileID: 1768500529}
+  testHeroTool: {fileID: 459909592}
+  visible: 0
+  referenceHeight: 720
+  left: 336
+  width: 380
+--- !u!114 &459909592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459909589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a47276f2de63142afa26ac0f021bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Presentation::IndieMoba.Presentation.JungleTestHeroTool
+  dummyPrefab: {fileID: 7919972475016026195, guid: 4f4cffa36127dac40b9f734c7d794207, type: 3}
+  player: {fileID: 1768500528}
+  offset: {x: 3, y: 0}
+  team: 2
+--- !u!114 &459909593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459909589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bda2a7bff7f504c8d00b91e54a57b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Presentation::IndieMoba.Presentation.StatusEffectAuraSpawner
+  ringSprite: {fileID: 21300000, guid: 72dcc8f9198a4424591562ea3979a323, type: 3}
+  ringScale: 1.1
+  pulseSpeed: 4
+  sortingLayer: GroundDecor
+  sortingOrder: 20
 --- !u!1001 &506554891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23064,8 +23786,99 @@ Transform:
   - {fileID: 569864625}
   - {fileID: 770175132}
   - {fileID: 210513446}
+  - {fileID: 208375370}
+  - {fileID: 459909590}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &533569998
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1158058564}
+    m_Modifications:
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159582419574921148, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3389091639877526089, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3389091639877526089, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6405703434880275677, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7584841973915275120, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_Name
+      value: JNG_ShadeStalker_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+--- !u!4 &533569999 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+  m_PrefabInstance: {fileID: 533569998}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &533570000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2287715709386660167, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+  m_PrefabInstance: {fileID: 533569998}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1 &569864623
 GameObject:
   m_ObjectHideFlags: 0
@@ -23121,6 +23934,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 515638898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &573457316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1854288220}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!4 &573457317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 573457316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &573457318 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 573457316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1001 &579837155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23226,6 +24128,56 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6923506817105190547, guid: 3d2314d8500bc254b818912cdc4093cc, type: 3}
   m_PrefabInstance: {fileID: 579837155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &701032271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701032273}
+  - component: {fileID: 701032272}
+  m_Layer: 0
+  m_Name: Camp_RedUpper_SmallA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &701032272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701032271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: 237493539dab84045bb9b0ff2e3aac2b, type: 2}
+  campId: Clearing_RedUpper_SmallA
+  members:
+  - {fileID: 1107146868}
+  buffCarrier: {fileID: 0}
+--- !u!4 &701032273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701032271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46, y: 104, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1107146869}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &707362095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23604,6 +24556,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &753531500
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 96304815}
+    m_Modifications:
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123583335431770167, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_Name
+      value: JNG_AshMite_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318831607556085867, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+--- !u!4 &753531501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 753531500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &753531502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2222760869185845707, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 753531500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1 &770175131
 GameObject:
   m_ObjectHideFlags: 0
@@ -23715,6 +24756,184 @@ MonoBehaviour:
   heroActor: {fileID: 1768500532}
   respawnPoint: {fileID: 1847430885}
   enableShortcut: 1
+--- !u!1001 &795953164
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1158058564}
+    m_Modifications:
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 1342242101234129608, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_Name
+      value: JNG_CrystalMite_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010051553038166174, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3338495825489478491, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+--- !u!114 &795953165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1013838523943341696, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 795953164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &795953166 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 795953164}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &846769894
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1915682027}
+    m_Modifications:
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123583335431770167, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_Name
+      value: JNG_AshMite_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318831607556085867, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+--- !u!4 &846769895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 846769894}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &846769896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2222760869185845707, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 846769894}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1 &888077046
 GameObject:
   m_ObjectHideFlags: 0
@@ -23769,6 +24988,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 515638898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &916407696
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1854288220}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!114 &916407697 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 916407696}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &916407698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 916407696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &970465985
 GameObject:
   m_ObjectHideFlags: 0
@@ -23966,6 +25274,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 304628742781533490, guid: 9a97e663bf4844743ace3f140e026247, type: 3}
   m_PrefabInstance: {fileID: 979921338}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &988464434
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1158058564}
+    m_Modifications:
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1003967035297542734, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 1342242101234129608, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_Name
+      value: JNG_CrystalMite_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010051553038166174, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3338495825489478491, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+--- !u!4 &988464435 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8702771432585885051, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 988464434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &988464436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1013838523943341696, guid: 05878afb63f093049954a2166c9870fb, type: 3}
+  m_PrefabInstance: {fileID: 988464434}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1001 &1004562253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24023,6 +25420,327 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbbdd6310a873a54980268f5ee0b8abb, type: 3}
+--- !u!1001 &1054926393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1090401929}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!114 &1054926394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1054926393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1054926395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1054926393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1078354947
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 318623054}
+    m_Modifications:
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943066000059224702, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6867420468823392107, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6867420468823392107, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8851608266643805584, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8908587271512613418, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_Name
+      value: JNG_TwistedBoar_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+--- !u!114 &1078354948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7584174801262626104, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+  m_PrefabInstance: {fileID: 1078354947}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1078354949 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+  m_PrefabInstance: {fileID: 1078354947}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090401927
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090401929}
+  - component: {fileID: 1090401928}
+  m_Layer: 0
+  m_Name: Camp_RedUpper_Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090401928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090401927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: ca2dd73a62e99c340818544d0a4e4855, type: 2}
+  campId: Clearing_RedUpper_Buff
+  members:
+  - {fileID: 1923063361}
+  - {fileID: 295624845}
+  - {fileID: 1054926394}
+  buffCarrier: {fileID: 1923063361}
+--- !u!4 &1090401929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090401927}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70, y: 102, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1923063360}
+  - {fileID: 295624844}
+  - {fileID: 1054926395}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1107146867
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 701032273}
+    m_Modifications:
+    - target: {fileID: 1332893139260259937, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114510679907093615, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 5963126038869834898, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_Name
+      value: JNG_MossBoar_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298759344504944774, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7298759344504944774, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+--- !u!114 &1107146868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7478302953662985412, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+  m_PrefabInstance: {fileID: 1107146867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1107146869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+  m_PrefabInstance: {fileID: 1107146867}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1128691668
 GameObject:
   m_ObjectHideFlags: 0
@@ -24086,6 +25804,470 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993070559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1132865881
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 450995930}
+    m_Modifications:
+    - target: {fileID: 1332893139260259937, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3114510679907093615, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 5963126038869834898, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: m_Name
+      value: JNG_MossBoar_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7298759344504944774, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7298759344504944774, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+--- !u!114 &1132865882 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7478302953662985412, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+  m_PrefabInstance: {fileID: 1132865881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1132865883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2737725105460021763, guid: 59e8dca11daef41419ffefcdfa669f47, type: 3}
+  m_PrefabInstance: {fileID: 1132865881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1157533277
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1962793046}
+    m_Modifications:
+    - target: {fileID: 3532774711394619610, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977882249741013183, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 5977882249741013183, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6024985885267570269, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_Name
+      value: JNG_RootGuardian_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213877433897201852, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+--- !u!4 &1157533278 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+  m_PrefabInstance: {fileID: 1157533277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157533279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8754161658017302502, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+  m_PrefabInstance: {fileID: 1157533277}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1 &1158058562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158058564}
+  - component: {fileID: 1158058563}
+  m_Layer: 0
+  m_Name: Camp_BlueUpper_SmallB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1158058563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158058562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: db29923e046b0714ba80c6e41c1754cc, type: 2}
+  campId: Clearing_BlueUpper_SmallB
+  members:
+  - {fileID: 533570000}
+  - {fileID: 988464436}
+  - {fileID: 795953165}
+  buffCarrier: {fileID: 0}
+--- !u!4 &1158058564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158058562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 42, y: 70, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 533569999}
+  - {fileID: 988464435}
+  - {fileID: 795953166}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1160922053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1160922055}
+  - component: {fileID: 1160922054}
+  m_Layer: 0
+  m_Name: Camp_BlueLower_SmallB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1160922054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160922053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: d9e4ea00019583c458321d83d7d94e2e, type: 2}
+  campId: Clearing_BlueLower_SmallB
+  members:
+  - {fileID: 1947127757}
+  - {fileID: 309522360}
+  - {fileID: 2062473492}
+  buffCarrier: {fileID: 0}
+--- !u!4 &1160922055
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160922053}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 70, y: 42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1947127756}
+  - {fileID: 309522359}
+  - {fileID: 2062473493}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1175216576
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1962793046}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!4 &1175216577 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1175216576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1175216578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1175216576}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1001 &1221915024
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1962793046}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!114 &1221915025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1221915024}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1221915026 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 1221915024}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1237291234
 GameObject:
   m_ObjectHideFlags: 0
@@ -24193,6 +26375,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993070559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1277829975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1163610919291776375, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
+  m_PrefabInstance: {fileID: 1768500526}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1289226368
 GameObject:
   m_ObjectHideFlags: 0
@@ -24683,6 +26870,184 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 304628742781533490, guid: 9a97e663bf4844743ace3f140e026247, type: 3}
   m_PrefabInstance: {fileID: 1438845348}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1440143001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1854288220}
+    m_Modifications:
+    - target: {fileID: 1713012660582927485, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1713012660582927485, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 2436411682830487582, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_Name
+      value: JNG_FungalBrute_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340093338103355449, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531215791721554109, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+--- !u!4 &1440143002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+  m_PrefabInstance: {fileID: 1440143001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1440143003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2613312193259343993, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+  m_PrefabInstance: {fileID: 1440143001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1001 &1454810000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1915682027}
+    m_Modifications:
+    - target: {fileID: 944500270086888743, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4995305310781676000, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_Name
+      value: JNG_BlightWarden_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398638163863413565, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7121053901518801555, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7121053901518801555, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+--- !u!4 &1454810001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+  m_PrefabInstance: {fileID: 1454810000}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1454810002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6826438650506637033, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+  m_PrefabInstance: {fileID: 1454810000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1001 &1459228460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24796,6 +27161,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6923506817105190547, guid: 3d2314d8500bc254b818912cdc4093cc, type: 3}
   m_PrefabInstance: {fileID: 1459228460}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1470521752
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 148503049}
+    m_Modifications:
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3159582419574921148, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3389091639877526089, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 3389091639877526089, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6405703434880275677, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7584841973915275120, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+      propertyPath: m_Name
+      value: JNG_ShadeStalker_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+--- !u!4 &1470521753 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 231608266776909330, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+  m_PrefabInstance: {fileID: 1470521752}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1470521754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2287715709386660167, guid: 141d3c5ba16ac014a809c970e77fee06, type: 3}
+  m_PrefabInstance: {fileID: 1470521752}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1 &1504055110
 GameObject:
   m_ObjectHideFlags: 0
@@ -24859,6 +27313,184 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1993070559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1582886382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 96304815}
+    m_Modifications:
+    - target: {fileID: 944500270086888743, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4995305310781676000, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_Name
+      value: JNG_BlightWarden_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6398638163863413565, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7121053901518801555, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7121053901518801555, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+--- !u!4 &1582886383 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6087633810256994040, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+  m_PrefabInstance: {fileID: 1582886382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1582886384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6826438650506637033, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+  m_PrefabInstance: {fileID: 1582886382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1001 &1585602646
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1803570156}
+    m_Modifications:
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2943066000059224702, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6867420468823392107, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6867420468823392107, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8851608266643805584, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 8908587271512613418, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+      propertyPath: m_Name
+      value: JNG_TwistedBoar_0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+--- !u!114 &1585602647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7584174801262626104, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+  m_PrefabInstance: {fileID: 1585602646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1585602648 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 925367546843432318, guid: 77a2ddd352ab8f74989dca0499ac8631, type: 3}
+  m_PrefabInstance: {fileID: 1585602646}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1670012452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25413,7 +28045,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1163610919291776375, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768500533}
   m_SourcePrefab: {fileID: 100100000, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
 --- !u!4 &1768500527 stripped
 Transform:
@@ -25430,7 +28065,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5541025546494928555, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
   m_PrefabInstance: {fileID: 1768500526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1277829975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2deeea231fd854c4e9e064db0a744aae, type: 3}
@@ -25441,7 +28076,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8089978783209600490, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
   m_PrefabInstance: {fileID: 1768500526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1277829975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c264e08e3941d44d944e08431b655bd, type: 3}
@@ -25452,7 +28087,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7841818162667535603, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
   m_PrefabInstance: {fileID: 1768500526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1277829975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8815d9df5cf91f54887a678ca73c4396, type: 3}
@@ -25463,12 +28098,80 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3211255260926948885, guid: 5fd6a6ee369b7104ab3a84f603fff218, type: 3}
   m_PrefabInstance: {fileID: 1768500526}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1277829975}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d3350da46dd57b4890e53ca7f05938a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: IndieMoba.Characters::IndieMoba.Characters.HeroActor
+--- !u!114 &1768500533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277829975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c860077a8c913194bab0a888c44790e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Combat::IndieMoba.Combat.StatusEffectController
+  runner: {fileID: 59602359}
+  world: {fileID: 1289226369}
+  health: {fileID: 1768500531}
+  target: {fileID: 1768500530}
+  heroCombat: {fileID: 1768500529}
+  heroActor: {fileID: 1768500532}
+--- !u!1 &1803570154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1803570156}
+  - component: {fileID: 1803570155}
+  m_Layer: 0
+  m_Name: Camp_RedLower_SmallA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1803570155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803570154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: 1698c2b49b84f764e802ab8ee244e721, type: 2}
+  campId: Clearing_RedLower_SmallA
+  members:
+  - {fileID: 1585602647}
+  buffCarrier: {fileID: 0}
+--- !u!4 &1803570156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803570154}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 104, y: 46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1585602648}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1847430884
 GameObject:
   m_ObjectHideFlags: 0
@@ -25499,6 +28202,60 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 770175132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1854288218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1854288220}
+  - component: {fileID: 1854288219}
+  m_Layer: 0
+  m_Name: Camp_RedUpper_SmallB
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1854288219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854288218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: d9e4ea00019583c458321d83d7d94e2e, type: 2}
+  campId: Clearing_RedUpper_SmallB
+  members:
+  - {fileID: 1440143003}
+  - {fileID: 573457318}
+  - {fileID: 916407697}
+  buffCarrier: {fileID: 0}
+--- !u!4 &1854288220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854288218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 58, y: 86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1440143002}
+  - {fileID: 573457317}
+  - {fileID: 916407698}
+  m_Father: {fileID: 208375370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1857299620
 GameObject:
@@ -25531,6 +28288,238 @@ Transform:
   m_Children: []
   m_Father: {fileID: 515638898}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1877155550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1915682027}
+    m_Modifications:
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.80000305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123583335431770167, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_Name
+      value: JNG_AshMite_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318831607556085867, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+--- !u!114 &1877155551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2222760869185845707, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 1877155550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &1877155552 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 1877155550}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1915682025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915682027}
+  - component: {fileID: 1915682026}
+  m_Layer: 0
+  m_Name: Camp_RedLower_Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1915682026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915682025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: bc484731b7822824e9d1cd706fbc0365, type: 2}
+  campId: Clearing_RedLower_Buff
+  members:
+  - {fileID: 1454810002}
+  - {fileID: 846769896}
+  - {fileID: 1877155551}
+  buffCarrier: {fileID: 1454810002}
+--- !u!4 &1915682027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915682025}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 102, y: 70, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1454810001}
+  - {fileID: 846769895}
+  - {fileID: 1877155552}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1923063359
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1090401929}
+    m_Modifications:
+    - target: {fileID: 3532774711394619610, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977882249741013183, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 5977882249741013183, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6024985885267570269, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: m_Name
+      value: JNG_RootGuardian_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8213877433897201852, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+--- !u!4 &1923063360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4032626338635838192, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+  m_PrefabInstance: {fileID: 1923063359}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1923063361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8754161658017302502, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+  m_PrefabInstance: {fileID: 1923063359}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
 --- !u!1001 &1923703318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25636,6 +28625,149 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 304628742781533490, guid: 9a97e663bf4844743ace3f140e026247, type: 3}
   m_PrefabInstance: {fileID: 1923703318}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1947127755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1160922055}
+    m_Modifications:
+    - target: {fileID: 1713012660582927485, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 1713012660582927485, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 2436411682830487582, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_Name
+      value: JNG_FungalBrute_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340093338103355449, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531215791721554109, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+--- !u!4 &1947127756 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7324154213125598917, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+  m_PrefabInstance: {fileID: 1947127755}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1947127757 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2613312193259343993, guid: d918f2d69fb5a714d828751d4989274e, type: 3}
+  m_PrefabInstance: {fileID: 1947127755}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!1 &1962793044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1962793046}
+  - component: {fileID: 1962793045}
+  m_Layer: 0
+  m_Name: Camp_BlueLower_Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1962793045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962793044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 347cb802144db284ca0f1003b6fcddf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCamp
+  config: {fileID: 11400000, guid: ca2dd73a62e99c340818544d0a4e4855, type: 2}
+  campId: Clearing_BlueLower_Buff
+  members:
+  - {fileID: 1157533279}
+  - {fileID: 1175216578}
+  - {fileID: 1221915025}
+  buffCarrier: {fileID: 1157533279}
+--- !u!4 &1962793046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962793044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 58, y: 26, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1157533278}
+  - {fileID: 1175216577}
+  - {fileID: 1221915026}
+  m_Father: {fileID: 208375370}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1993070558
 GameObject:
   m_ObjectHideFlags: 0
@@ -25774,6 +28906,184 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 304628742781533490, guid: 9a97e663bf4844743ace3f140e026247, type: 3}
   m_PrefabInstance: {fileID: 2012700194}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2062473491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1160922055}
+    m_Modifications:
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 702775637919391012, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 3656307719917830806, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: m_Name
+      value: JNG_SporeWisp_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8613931866348768843, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+--- !u!114 &2062473492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4574261299003317080, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 2062473491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &2062473493 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4741352861939533649, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+  m_PrefabInstance: {fileID: 2062473491}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2077032193
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 96304815}
+    m_Modifications:
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.79999924
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123583335431770167, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    - target: {fileID: 6064665850401556463, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: runner
+      value: 
+      objectReference: {fileID: 59602359}
+    - target: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: m_Name
+      value: JNG_AshMite_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318831607556085867, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+      propertyPath: world
+      value: 
+      objectReference: {fileID: 1289226369}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+--- !u!114 &2077032194 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2222760869185845707, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 2077032193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6fef171459ffeb4083b06682e9a646c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleMonster
+--- !u!4 &2077032195 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1456975816010941604, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+  m_PrefabInstance: {fileID: 2077032193}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

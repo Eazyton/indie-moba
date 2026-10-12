@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f0929df92b47f94fb6d4f6c4425a76f, type: 3}
+  m_Name: JungleSetup_Match5v5
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleSetup
+  entries:
+  - zoneId: Clearing_BlueUpper_Buff
+    camp: {fileID: 11400000, guid: bc484731b7822824e9d1cd706fbc0365, type: 2}
+  - zoneId: Clearing_BlueUpper_SmallA
+    camp: {fileID: 11400000, guid: 1698c2b49b84f764e802ab8ee244e721, type: 2}
+  - zoneId: Clearing_BlueUpper_SmallB
+    camp: {fileID: 11400000, guid: db29923e046b0714ba80c6e41c1754cc, type: 2}
+  - zoneId: Clearing_BlueLower_Buff
+    camp: {fileID: 11400000, guid: ca2dd73a62e99c340818544d0a4e4855, type: 2}
+  - zoneId: Clearing_BlueLower_SmallA
+    camp: {fileID: 11400000, guid: 237493539dab84045bb9b0ff2e3aac2b, type: 2}
+  - zoneId: Clearing_BlueLower_SmallB
+    camp: {fileID: 11400000, guid: d9e4ea00019583c458321d83d7d94e2e, type: 2}
+  - zoneId: Clearing_RedUpper_Buff
+    camp: {fileID: 11400000, guid: ca2dd73a62e99c340818544d0a4e4855, type: 2}
+  - zoneId: Clearing_RedUpper_SmallA
+    camp: {fileID: 11400000, guid: 237493539dab84045bb9b0ff2e3aac2b, type: 2}
+  - zoneId: Clearing_RedUpper_SmallB
+    camp: {fileID: 11400000, guid: d9e4ea00019583c458321d83d7d94e2e, type: 2}
+  - zoneId: Clearing_RedLower_Buff
+    camp: {fileID: 11400000, guid: bc484731b7822824e9d1cd706fbc0365, type: 2}
+  - zoneId: Clearing_RedLower_SmallA
+    camp: {fileID: 11400000, guid: 1698c2b49b84f764e802ab8ee244e721, type: 2}
+  - zoneId: Clearing_RedLower_SmallB
+    camp: {fileID: 11400000, guid: db29923e046b0714ba80c6e41c1754cc, type: 2}

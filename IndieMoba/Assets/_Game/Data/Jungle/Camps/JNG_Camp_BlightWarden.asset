@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac2fd52d857c264496eaa5e61459691, type: 3}
+  m_Name: JNG_Camp_BlightWarden
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCampConfig
+  displayName: Blight Warden
+  campType: 1
+  firstSpawnTime: 20
+  respawnTime: 90
+  leashRadius: 8
+  acquireRadius: 6
+  resetAfterNoDamage: 6
+  returnSpeed: 7
+  resetHealDuration: 1.5
+  returnTimeout: 4
+  retargetIntervalTicks: 15
+  members:
+  - monsterPrefab: {fileID: 4995305310781676000, guid: ac125ddc0ad1e1646acf1395749e5446, type: 3}
+    localOffset: {x: 0, y: 0.6}
+    buffCarrier: 1
+  - monsterPrefab: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+    localOffset: {x: -1.4, y: -0.8}
+    buffCarrier: 0
+  - monsterPrefab: {fileID: 7668109418190184795, guid: 9c2556c7e2722a541b555a80fc7b60d3, type: 3}
+    localOffset: {x: 1.4, y: -0.8}
+    buffCarrier: 0
+  reward: {fileID: 11400000, guid: ef24f907f59a06a4a856cc2d2382ff4b, type: 2}

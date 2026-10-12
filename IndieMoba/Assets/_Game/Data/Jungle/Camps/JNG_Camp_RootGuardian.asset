@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac2fd52d857c264496eaa5e61459691, type: 3}
+  m_Name: JNG_Camp_RootGuardian
+  m_EditorClassIdentifier: IndieMoba.Jungle::IndieMoba.Jungle.JungleCampConfig
+  displayName: Root Guardian
+  campType: 1
+  firstSpawnTime: 20
+  respawnTime: 90
+  leashRadius: 8
+  acquireRadius: 6
+  resetAfterNoDamage: 6
+  returnSpeed: 7
+  resetHealDuration: 1.5
+  returnTimeout: 4
+  retargetIntervalTicks: 15
+  members:
+  - monsterPrefab: {fileID: 6024985885267570269, guid: 683efba24a20409449573ba53ff4e102, type: 3}
+    localOffset: {x: 0, y: 0.6}
+    buffCarrier: 1
+  - monsterPrefab: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+    localOffset: {x: -1.4, y: -0.8}
+    buffCarrier: 0
+  - monsterPrefab: {fileID: 8353172522167976078, guid: e458c6e053e150a499fb30a790d3f72d, type: 3}
+    localOffset: {x: 1.4, y: -0.8}
+    buffCarrier: 0
+  reward: {fileID: 11400000, guid: a56319372052f9a48b07572b4b06eec4, type: 2}

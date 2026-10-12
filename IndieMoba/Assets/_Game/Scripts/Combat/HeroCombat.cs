@@ -47,6 +47,7 @@ namespace IndieMoba.Combat
         private readonly List<AbilityCommand> commandBuffer = new List<AbilityCommand>();
         private readonly List<AbilityCommand> pendingCommands = new List<AbilityCommand>();
         private IAbilityInputSource inputSource;
+        private float cooldownRecoveryRate = 1f;
 
         public event Action<AbilitySlot, AbilityConfig> AbilityStarted;
         public event Action<AbilitySlot, AbilityConfig> AbilityCompleted;
@@ -62,6 +63,14 @@ namespace IndieMoba.Combat
         public HeroActor Actor => actor;
         public Team Team => self != null ? self.Team : Team.Neutral;
         public CombatWorld World => world;
+
+        // Cooldown seconds recovered per simulated second. 1 = normal; 1.15 = 15% faster recovery
+        // (not a reduction of the configured cooldown duration). Driven by StatusEffectController.
+        public float CooldownRecoveryRate
+        {
+            get => cooldownRecoveryRate;
+            set => cooldownRecoveryRate = Mathf.Max(0f, value);
+        }
 
         public AbilitySlotRuntime GetSlot(AbilitySlot slot) => slots[(int)slot];
 
@@ -81,7 +90,7 @@ namespace IndieMoba.Combat
             for (int i = 0; i < slots.Length; i++)
             {
                 AbilitySlotRuntime runtime = slots[i];
-                runtime.Cooldown.Tick(deltaTime);
+                runtime.Cooldown.Tick(deltaTime * cooldownRecoveryRate);
                 if (!runtime.IsConfigured)
                 {
                     continue;
@@ -113,6 +122,10 @@ namespace IndieMoba.Combat
             for (int i = commandBuffer.Count - 1; i >= 0; i--)
             {
                 AbilityCommand command = commandBuffer[i];
+                if ((int)command.Slot < 0 || (int)command.Slot >= SlotCount)
+                {
+                    continue;
+                }
                 uint bit = 1u << (int)command.Slot;
                 if ((handled & bit) != 0)
                 {

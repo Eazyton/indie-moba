@@ -9,8 +9,16 @@ namespace IndieMoba.Characters
         private readonly RaycastHit2D[] hitBuffer = new RaycastHit2D[8];
         private readonly Collider2D[] overlapBuffer = new Collider2D[8];
         private ContactFilter2D contactFilter;
+        private float speedMultiplier = 1f;
 
         public CharacterMovementConfig Config => config;
+
+        // Scales MaxSpeed for normal movement (slows, return speed). Forced moves (dashes) are not affected.
+        public float SpeedMultiplier
+        {
+            get => speedMultiplier;
+            set => speedMultiplier = Mathf.Max(0f, value);
+        }
 
         public CharacterMotor(CharacterMovementConfig config)
         {
@@ -68,7 +76,7 @@ namespace IndieMoba.Characters
                 }
             }
 
-            Vector2 targetVelocity = desiredDir * config.MaxSpeed;
+            Vector2 targetVelocity = desiredDir * (config.MaxSpeed * speedMultiplier);
             float rate = desiredDir == Vector2.zero ? config.Deceleration : config.Acceleration;
             state.Velocity = Vector2.MoveTowards(state.Velocity, targetVelocity, rate * deltaTime);
 

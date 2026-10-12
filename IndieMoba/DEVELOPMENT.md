@@ -2,13 +2,15 @@
 
 Unity 6.3 (6000.3.25f1), URP 2D, new Input System only. This document covers the architecture, workflows and technical decisions of the project. Release notes live in `CHANGELOG.md`.
 
-## Current scope (Phase 3)
+## Current scope (Phase 5B complete)
 
 - Phase 1: forest test area, controllable placeholder hero with collision-aware movement, pixel-perfect follow camera, input abstraction.
 - Phase 2: hero combat foundation - shared simulation tick, health/shield/damage, target abstraction, targeted basic attack, four placeholder abilities (Q/W/E/R) with cooldowns, two combat dummies, placeholder visual feedback, audio hook points and a debug overlay.
-- Phase 3: one functional prototype lane (70x27 world units) - minion waves, lane AI, towers, nexus, structure damage rules, win/lose result, debug revive.
+- Phase 3: one functional prototype lane (70x27 world units) - minion waves, lane AI, towers, nexus, structure damage rules, win/lose result, debug revive. Regression scene: `GameplayPrototype.unity`.
+- Phase 4B: full 5v5 graybox map (`Match5v5.unity`) - 3 lanes, river, two jungles, 18 towers, 2 nexuses, 3 wave spawners (current `Wave_Default`: first wave 4 s, interval 35 s; Mid offset +7.8 s).
+- Phase 5B (complete, manually validated in Play Mode): jungle camps, monsters, aggro/leash/reset/respawn, status effects and the Verdant Bloom / Ember Blight buffs. See "Phase 5B - Jungle" below.
 
-Not implemented yet: 3 lanes, jungle, shop, items, XP, gold, levels, respawn, bots/AI, networking, backend, menus, HUD, audio content, final animation pipeline.
+Not implemented yet: shop, items, XP, gold, levels, competitive respawn, epic objectives, concealment/vision, bots/AI, networking, backend, menus, HUD, audio content, final animation pipeline.
 
 ## Folder layout
 
@@ -243,7 +245,7 @@ A future server-authoritative model can run the same motor and combat code on th
 
 ## Roadmap
 
-Planning only; nothing beyond Phase 3 is implemented.
+Historical planning list. Phases 1-5B are done. Later phases are not implemented.
 
 - **Phase 2 - Hero combat foundation**: health, damage, targeting, basic attack, Q/W/E/R, cooldowns, dummy.
 - **Phase 3 - Functional lane** (current): minions, waves, towers, nexus/base, structure damage, simple win condition.
@@ -302,7 +304,7 @@ Keep the current target while valid, else the nearest enemy minion, else the ene
 The nexus reuses `TowerTargeting` and `TowerCombat` with its own `NexusConfig` (range 9, hero 180, minion 140, interval 1.2 s, projectile speed 14, warning range 14; prototype values). `TowerConfig` and `NexusConfig` share the `StructureDefenseConfig` base. Invulnerability only blocks incoming damage, so the nexus attacks even while its tower stands.
 
 ### Waves
-`WaveConfig`: first wave 4 s, interval 30 s, spawn gap 0.7 s, composition melee/ranged/melee/ranged/melee, lateral offsets -0.75/0/0.75. These are prototype values taken from our demo, not Honor of Kings values; they will be tuned for 15-20 minute matches.
+`WaveConfig`: first wave 4 s, interval 30 s at Phase 3 (the 5v5 tuning raised `Wave_Default.waveInterval` to 35 s), spawn gap 0.7 s, composition melee/ranged/melee/ranged/melee, lateral offsets -0.75/0/0.75. These are prototype values taken from our demo, not Honor of Kings values; they will be tuned for 15-20 minute matches.
 
 ### Movement and collision
 Minions have no colliders or rigidbodies. They use the shared `CharacterMotor` against the Obstacle layer, soft separation between minions and a small structure-avoidance steer. Heroes and minions do not collide physically. Structures have a `CircleCollider2D` on the Obstacle layer and block movement; the collider is disabled when destroyed.
@@ -357,3 +359,79 @@ Orthographic size 9.375, bounds (-6, -6, 140, 140), no PixelPerfectCamera in thi
 
 ### Out of scope
 Jungle monsters, buffs, objective monsters, concealment, fog of war, final art, bots, multiplayer, economy, shop, XP/leveling.
+
+## Phase 5B - Jungle
+
+Status: complete. Compiled and manually validated in Unity Play Mode (2026-10-11): 12 camps on the map, spawn/respawn, damage-only aggro, whole-camp engage, leash and reset (immunity, HP recovery, partial reset), Verdant Bloom (cooldown recovery, regen, duration), Ember Blight (Scorch, slow, refresh without stacking, target restrictions), status effects against another hero, kill attribution by periodic damage, buff removal on death, and regression of lanes, waves, towers, nexus, abilities, victory and Restart in `Match5v5.unity` and `GameplayPrototype.unity`. There are no automated Play Mode tests.
+
+### Assemblies and tick order
+- New `IndieMoba.Jungle` (references Core, Characters, Combat). `Presentation` and `Editor` reference it; Map, Match, Minions and Structures do not.
+- `SimulationOrder` adds `Neutral = 110` (`JungleDirector`, after Actors) and `Status = 350` (`StatusEffectController`, after Projectiles, before Damage). Full order: Input 0 -> Spawning 50 -> Actors 100 -> Neutral 110 -> Abilities 200 -> Projectiles 300 -> Status 350 -> Damage 400 -> State 500.
+
+### Targeting
+- `CombatTargetKind.Monster = 4` (existing values unchanged).
+- `LaneTargetRules.IsLaneTargetable` uses an allowlist (Hero, Minion, Structure): minions, towers and the nexus ignore jungle monsters and dummies.
+- Monsters are `Team.Neutral`; `TeamRules.AreHostile` is unchanged, so heroes (basic attack, Q, R) damage monsters and monsters never fight each other.
+
+### Status effects (`Combat/StatusEffects`)
+- `StatusEffectDefinition` (ScriptableObject): duration, cooldown recovery multiplier, HP regen/s, damage/s with tick interval, move speed multiplier, `onBasicAttackHit` rules (`StatusEffectOnHit`: effect + allowed target kinds), display color (presentation only).
+- `StatusEffectController` (per unit, ticked at `Status`): one instance per definition; re-applying refreshes the duration (no stacking) and keeps the periodic tick accumulator. Different definitions combine: slowest speed wins, cooldown recovery multiplies, regen/DoT add. All effects are cleared on death.
+- Periodic damage is queued in `CombatWorld` with `AbilitySlot.StatusEffect`: it never triggers `HeroCombat.BasicAttackHit` (no on-hit recursion) and structures reject it. `HeroCombat` ignores commands for that slot.
+- On-hit: the controller listens to its own `HeroCombat.BasicAttackHit` and applies the rules of its active effects to the hit target's `StatusEffectController`, only for allowed kinds. Lane minions have no controller and are not in the allowlist, so they are never affected.
+- Cooldown recovery: `HeroCombat.CooldownRecoveryRate` (default 1.0) multiplies the cooldown tick (`Cooldown` struct unchanged). 1.15 = 15% more recovery per second, not a shorter cooldown. It returns to 1.0 when the effect expires or is cleared.
+- Slow: `CharacterMotor.SpeedMultiplier` / `HeroActor.SpeedMultiplier` (default 1.0) scale normal movement only; dashes are unaffected.
+
+### Jungle runtime
+- `JungleDirector` ticks every camp, listens to `CombatWorld.DamageApplied` (hero aggro, kills) and grants carrier buffs. Events `MonsterKilled`, `CampCleared`, `BuffGranted`, `CampStateChanged` are the reward hooks for future economy.
+- `JungleCamp` is the strategic authority: states WaitingFirstSpawn -> Idle -> Engaged -> Resetting -> Idle, or Cleared -> (respawn) Idle.
+  - Aggro: only hero damage (no proximity aggro). The whole camp engages one shared target.
+  - Retarget: only when the target becomes invalid (dead, invulnerable, outside the leash); validity is re-checked every `retargetIntervalTicks`. Candidates: heroes that damaged the camp, then heroes within `acquireRadius` of the camp center. None -> reset.
+  - Leash: monsters never step outside `leashRadius` around the clearing center.
+  - Reset: after `resetAfterNoDamage` s without hero damage, or no valid target. The camp disengages, members are immune, clear their status effects, return at `returnSpeed`, regenerate over `resetHealDuration` and snap home at full HP on arrival or after `returnTimeout`. A camp hit from outside its leash also resets.
+  - Clear: only when every member is dead. Respawn: all members together after `respawnTime`; GameObjects are deactivated/reactivated, never destroyed or recreated.
+- `JungleMonster` executes orders (move, attack, return) with the shared `CharacterMotor` against the Obstacle layer. It is the `Health` damage filter for reset immunity. Health supports a single `IDamageFilter`; monsters have no other filter (known limitation, not refactored).
+- Buffs: the living hero who lands the killing blow on the carrier (including through Scorch) receives the camp's `JungleRewardProfile.carrierBuff`. Kill attribution uses `DamageInfo.Source` (GameObject); multiplayer will need stable ids.
+
+### Data (`Data/Jungle`, created by menu 5 only when missing; existing values are never overwritten)
+
+| Parameter | Small camp | Buff camp |
+|---|---:|---:|
+| First spawn | 20 s | 20 s |
+| Respawn after clear | 55 s | 90 s |
+| Leash radius | 6.5 u | 8 u |
+| Acquire radius | 5 u | 6 u |
+| Reset without hero damage | 6 s | 6 s |
+| Return speed | 7 u/s | 7 u/s |
+| Reset heal | 1.5 s + full snap | 1.5 s + full snap |
+| Return timeout | 4 s | 4 s |
+
+| Archetype (`Monsters/JNG_Config_*`) | HP | Damage / interval | Attack range |
+|---|---:|---|---:|
+| BuffElite | 1500 | 22 / 1.5 s | 1.2 |
+| LargeMelee | 900 | 22 / 1.25 s | 1.1 |
+| MediumMelee | 520 | 16 / 1.2 s | 1.0 |
+| SmallMelee | 220 | 10 / 1.2 s | 0.9 |
+| SmallRanged | 200 | 9 / 1.5 s | 4.5 |
+
+Monster chase speed 3.5 u/s (`JNG_MonsterMovement`). Buffs (`StatusEffects/SE_*`): Verdant Bloom 80 s, cooldown recovery x1.15, 8 HP/s. Ember Blight 80 s, basic attacks on Heroes/Monsters apply Scorch (12 dmg/s for 3 s, 0.5 s ticks) and Ember Slow (-15% for 1.5 s), both refresh without stacking. All values are playtest prototypes.
+
+Camp placement (`JungleSetup_Match5v5`, editable): Clash-side quadrants (BlueUpper, RedLower) have Blight Warden + Ash Mites (Ember Blight), Twisted Boar and Shade Stalker + Crystal Mites. Farm-side quadrants (BlueLower, RedUpper) have Root Guardian + Spore Wisps (Verdant Bloom), Moss Boar and Fungal Brute + Spore Wisps. The four optional clearings stay empty. Monster names are provisional placeholders; visuals are the Vex placeholder sheet tinted and scaled (`Prefabs/Jungle/JNG_*`).
+
+### Menu `IndieMoba/Map 5v5/5. Wire Jungle (Non-Destructive)`
+Run after menu 4 (Unity must not be in Play Mode). It creates missing jungle assets/prefabs, creates missing camps under `Match5v5_Systems/Jungle` from the `MapZoneMarker`s in the `Map5v5_Gameplay` instance (existing camps are kept as they are; only scene references are re-wired), adds a `StatusEffectController` to every hero in the scene and adds `Match5v5_Systems/JunglePresentation`. It never touches map geometry, prefabs from menus 2/3, waves or structures. To regenerate a camp, delete it from the scene and re-run; to regenerate a data asset or prefab, delete it and re-run. Expected Console output: `4 buff, 8 small, 4 optional (left empty)` clearings and `12 camps`; a second run reports `0 created, 12 kept`. Editor note: opening a scene in Single mode unloads assets no scene references, so the builder reloads `JungleSetup` after `OpenScene` (same pattern as menu 4).
+
+### Presentation and debug (replaceable)
+- `JungleMonsterPresenter` (interpolation, flip, attack punch, immune bubble while resetting, carrier marker), `HealthFlashView` and `HealthBarView` on monsters.
+- `StatusEffectAuraSpawner`: pulsing ring under any unit with active effects, tinted with the buff/debuff color.
+- `JungleDebugOverlay` (F3, hidden by default): jungle time, every camp's state, alive count, HP, spawn/respawn timer, target and reset countdown; player effects, speed and cooldown rate; last buff/clear event; "Force spawn all".
+- `JungleTestHeroTool` (overlay button "Spawn test hero (Red)"): spawns at runtime a `CombatDummy` reclassified as a Red Hero with a `StatusEffectController`, to test hero-vs-hero effects such as Ember Blight. Never saved in the scene. As a Hero it can also be targeted by blue towers/minions.
+
+### Known limitations
+- Single `IDamageFilter` per `Health` (reset immunity uses it).
+- No proximity aggro, no smite-like spell, no gold/XP, no epic monsters (out of scope).
+- Monsters steer with collide-and-slide only (no pathfinding); clearings are open areas so this is sufficient for camps.
+- Buff carrier kill credit goes to the killing blow's source GameObject; assists and team buffs do not exist yet.
+- Data assets and monster prefabs are created once; changing defaults in the builder does not update existing assets.
+- Only one hero exists in `Match5v5`; hero-vs-hero effects are tested with the runtime-only test hero.
+- Jungle monster placeholders reuse the Vex sheet; no monster animations, attack VFX or final art.
+- Verification: assemblies compile; jungle behaviour is validated manually only (no automated tests).

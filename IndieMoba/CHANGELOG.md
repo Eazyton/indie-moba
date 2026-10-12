@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.5.0] - 2026-10-11 - Phase 5B: Jungle (manually validated in Play Mode)
+
+### Added
+- `IndieMoba.Jungle` assembly: `JungleDirector`, `JungleCamp`, `JungleMonster`, `JungleMonsterConfig`, `JungleCampConfig`, `JungleRewardProfile`, `JungleSetup`.
+- 12 jungle camps (4 buff, 8 small) on the existing clearings; the 4 optional clearings stay empty. Hero-damage aggro, shared camp target, leash, reset with immunity and regeneration, clear, and timed group respawn (first 20 s; 55 s small / 90 s buff).
+- Status effects in Combat: `StatusEffectDefinition`, `StatusEffectOnHit`, `StatusEffectController` (refresh, no stacking, ticked by the simulation).
+- Buffs Verdant Bloom (80 s, cooldown recovery x1.15, 8 HP/s) and Ember Blight (80 s, basic attacks on heroes/monsters apply Scorch 12 dmg/s for 3 s and a 15% slow for 1.5 s), granted to the living hero who kills the carrier.
+- Menu `IndieMoba/Map 5v5/5. Wire Jungle (Non-Destructive)`: creates missing jungle data/prefabs, camps and presentation in `Match5v5.unity`.
+- Placeholder monster prefabs (`Prefabs/Jungle/JNG_*`), `JungleMonsterPresenter`, `StatusEffectAuraSpawner`, F3 `JungleDebugOverlay`, runtime-only `JungleTestHeroTool`.
+- `CombatTargetKind.Monster`, `SimulationOrder.Neutral` (110) and `SimulationOrder.Status` (350), `AbilitySlot.StatusEffect` (damage tag only).
+- `HeroCombat.CooldownRecoveryRate`, `CharacterMotor.SpeedMultiplier`, `HeroActor.SpeedMultiplier` (all default 1.0; no behaviour change without effects).
+
+### Changed
+- Lane targeting (minions, towers, nexus) uses an allowlist of Hero, Minion and Structure, so jungle monsters are ignored.
+- `HeroCombat` ignores ability commands for non-castable slots.
+- `DEVELOPMENT.md` current-scope summary updated (4B, 35 s waves, Phase 5B).
+- `Match5v5.unity`: adds `Match5v5_Systems/Jungle` (director + 12 camps, 28 monsters), `Match5v5_Systems/JunglePresentation`, and a `StatusEffectController` on the hero. Map geometry, waves and structures unchanged.
+
+### Fixed (during validation)
+- Menu 5 found 0 camps on its first run: opening `Match5v5.unity` in Single mode unloaded the freshly created `JungleSetup`/camp assets, so every entry looked incomplete. The setup is now reloaded after `OpenScene`, and the menu logs the clearings it finds.
+
+### Known limitations
+- Health keeps a single `IDamageFilter` (used for reset immunity); GameObject-based kill attribution; no proximity aggro, gold, XP, smite or epic monsters; no automated Play Mode tests.
+
 ## [0.4.0] - 2026-10-01 - Phase 4B: 5v5 graybox map
 
 ### Added

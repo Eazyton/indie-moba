@@ -45,7 +45,14 @@ namespace IndieMoba.Combat
     {
         public static bool IsLaneTargetable(ICombatTarget t, Team team)
         {
-            return t != null && t.IsAlive && t.Kind != CombatTargetKind.Other && !t.IsInvulnerable && TeamRules.AreHostile(team, t.Team);
+            return t != null && t.IsAlive && IsLaneKind(t.Kind) && !t.IsInvulnerable && TeamRules.AreHostile(team, t.Team);
+        }
+
+        // Allowlist: lane AI (minions, towers, nexus) only fights heroes, minions and structures.
+        // Jungle monsters and other targets (dummies) are ignored.
+        public static bool IsLaneKind(CombatTargetKind kind)
+        {
+            return kind == CombatTargetKind.Hero || kind == CombatTargetKind.Minion || kind == CombatTargetKind.Structure;
         }
 
         public static float EdgeDistance(Vector2 origin, ICombatTarget t)

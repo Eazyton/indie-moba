@@ -11,8 +11,10 @@ namespace IndieMoba.Core
         public const int Input = 0;
         public const int Spawning = 50;
         public const int Actors = 100;
+        public const int Neutral = 110;
         public const int Abilities = 200;
         public const int Projectiles = 300;
+        public const int Status = 350;
         public const int Damage = 400;
         public const int State = 500;
     }

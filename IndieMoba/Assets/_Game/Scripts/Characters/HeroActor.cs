@@ -31,6 +31,17 @@ namespace IndieMoba.Characters
         public CharacterMovementConfig MovementConfig => movementConfig;
         public int SimulationOrder => Core.SimulationOrder.Actors;
         public bool IsForcedMoving => forcedRemaining > 0f;
+        public float SpeedMultiplier
+        {
+            get => motor != null ? motor.SpeedMultiplier : 1f;
+            set
+            {
+                if (motor != null)
+                {
+                    motor.SpeedMultiplier = value;
+                }
+            }
+        }
         public bool MovementEnabled
         {
             get => movementEnabled;

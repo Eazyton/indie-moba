@@ -68,3 +68,5 @@ desktop.ini
 **/.next/
 **/dist/
 **/.cache/
+.abacusai/mcp.json
+.mcp.json

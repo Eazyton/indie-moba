@@ -15,7 +15,8 @@ namespace IndieMoba.Combat
         Hero = 0,
         Minion = 1,
         Structure = 2,
-        Other = 3
+        Other = 3,
+        Monster = 4
     }
 
     public enum DamageBlockReason

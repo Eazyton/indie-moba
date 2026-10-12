@@ -9,7 +9,10 @@ namespace IndieMoba.Core
         Ability1 = 1,
         Ability2 = 2,
         Ability3 = 3,
-        Ultimate = 4
+        Ultimate = 4,
+        // Damage source tag for status effects (periodic damage). Never a castable slot:
+        // HeroCombat ignores commands for it, structures reject it and it never triggers basic attack on-hit.
+        StatusEffect = 5
     }
 
     public enum BasicAttackTargeting
